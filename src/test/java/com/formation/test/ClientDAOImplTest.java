@@ -3,6 +3,7 @@ package com.formation.test;
 import static org.junit.Assert.assertEquals;
 
 import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -21,7 +22,7 @@ import com.formation.util.GestionDates;
 
 
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@FixMethodOrder(MethodSorters.JVM)
 public class ClientDAOImplTest {
 
 	private static ApplicationContext context;
@@ -34,28 +35,28 @@ public class ClientDAOImplTest {
 	}
 
 	@Test
-	public void atestCreateClient() {
+	public void testCreateClient() {
 		int expectedResult = 1;
 		Adresse adresse = new Adresse("Rue de la Puqée du Calui", "08888", "Pouilly");
-		Client client = new Client("Docquier", "Thibault", true,  GestionDates.date(Instant.now()), adresse);
+		Client client = new Client("Docquier", "Thibault", true,  new Date(2011, 05, 11, 11, 55), adresse);
 		clientDAO.CreateClient(client);
 		assertEquals(expectedResult, clientDAO.getAllClients().size());
 	}
 
 	@Test
-	public void ctestGetAllClients() {
+	public void testGetAllClients() {
 		List<Client> categorieList = clientDAO.getAllClients();
 		assertEquals(categorieList.size(), 1);
 	}
 	
 	@Test
-	public void btestGetClient() {
+	public void testGetClient() {
 		Client client = clientDAO.getClient(1);
 		assertEquals(client.getCode(), 1);
 	}
 
 	@Test
-	public void dtestUpdateClient() {
+	public void testUpdateClient() {
 		Client client = clientDAO.getClient(1);
 		client.setNom("Thib");
 		clientDAO.updateClient(client);
@@ -66,7 +67,7 @@ public class ClientDAOImplTest {
 
 
 	@Test
-	public void etestDeleteData() {
+	public void testDeleteClient() {
 		clientDAO.DeleteClient(clientDAO.getClient(1).getCode());
 		assertEquals(clientDAO.getClient(1), null);
 	}

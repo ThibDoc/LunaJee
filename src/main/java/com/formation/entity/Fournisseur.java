@@ -7,16 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-/*
- * La classe fournisseur est à compléter lorsque vous aurez réalisé
- * l'ensemble du projet Luna tel que proposé dans le livre.
- * Nous vous laissons donc le soin de créer vous mêmes
- * les méthodes CRUD en vous aidant de tout ce qui a été vu
- * et mis en oeuvre pour bâtir le projet Luna.
- * Pensez alors à créer aussi un modèle et une IHM
- * selon la même démarche suivie pour les classes entité
- * Client, Article, Commandes et Ligne  
- */
+
 @Entity
 public class Fournisseur implements Serializable {
 

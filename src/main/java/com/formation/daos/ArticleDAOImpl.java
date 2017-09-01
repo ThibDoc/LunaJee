@@ -43,7 +43,7 @@ public class ArticleDAOImpl implements ArticleDAO{
 	}
 
 	@Override
-	public List<Article> getAllEmployees() {
+	public List<Article> getAllArticles() {
 		return this.sessionFactory.getCurrentSession().createQuery("from Article").list();
 	}
 

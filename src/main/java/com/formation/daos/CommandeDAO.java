@@ -14,6 +14,6 @@ public interface CommandeDAO {
 	
 	public void DeleteCommande(int code);
 	
-	public List<Commande> getAllEmployees();
+	public List<Commande> getAllCommandes();
 
 }

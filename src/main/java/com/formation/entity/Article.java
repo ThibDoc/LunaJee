@@ -31,8 +31,8 @@ public class Article implements Serializable {
 	@ManyToOne(cascade = { CascadeType.PERSIST })
 	private Categorie categorie;
 
-	@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-	private Set<Fournisseur> fournisseurs = new HashSet<>();
+//	@ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+//	private Set<Fournisseur> fournisseurs = new HashSet<>();
 	
 	@Basic
 	private String designation;
@@ -43,32 +43,25 @@ public class Article implements Serializable {
 	@Column(name="prix_unitaire")
 	private double prixUnitaire;
 
-	private LocalDate date;
-
 	/*
 	 * Constructeur
 	 */
-	public Article(int code, int codeCategorie,
+	public Article( int codeCategorie,
 			String designation,
-			int quantite, double prixUnitaire,
-			Instant date) {
-		this(code, 
+			int quantite, double prixUnitaire) {
+		this(
 				new Categorie().setCode(codeCategorie),
 				designation, 
-				quantite, prixUnitaire,
-				date);
+				quantite, prixUnitaire);
 	}
 	
-	public Article(int code, Categorie categorie,
+	public Article(Categorie categorie,
 			String designation,
-			int quantite, double prixUnitaire,
-			Instant date) {
-		this.code = code;
+			int quantite, double prixUnitaire) {
 		this.categorie = categorie;
 		this.designation = designation;
 		this.quantite = quantite;
-		this.prixUnitaire = prixUnitaire;
-		setDate(date);
+		this.prixUnitaire = prixUnitaire;	
 	}
 
 	/*
@@ -100,13 +93,11 @@ public class Article implements Serializable {
 		return prixUnitaire;
 	}
 
-	public Instant getDate() {
-		return GestionDates.instant(date);
-	}
+
 	
-	public Set<Fournisseur> getFournisseurs() {
-		return this.fournisseurs;
-	}
+//	public Set<Fournisseur> getFournisseurs() {
+//		return this.fournisseurs;
+//	}
 
 	/*
 	 * Mutateurs
@@ -131,11 +122,9 @@ public class Article implements Serializable {
 		this.prixUnitaire = prix_unitaire;
 	}
 
-	public void setFournisseurs(Set<Fournisseur> fournisseurs) {
-		this.fournisseurs = fournisseurs;
-	}
+//	public void setFournisseurs(Set<Fournisseur> fournisseurs) {
+//		this.fournisseurs = fournisseurs;
+//	}
 	
-	public void setDate(Instant date) {
-		this.date = GestionDates.date(date);
-	}
+
 }

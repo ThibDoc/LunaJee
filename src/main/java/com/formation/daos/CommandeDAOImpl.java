@@ -43,7 +43,7 @@ public class CommandeDAOImpl implements CommandeDAO{
 	}
 
 	@Override
-	public List<Commande> getAllEmployees() {
+	public List<Commande> getAllCommandes() {
 		return this.sessionFactory.getCurrentSession().createQuery("from Commande").list();
 	}
 
