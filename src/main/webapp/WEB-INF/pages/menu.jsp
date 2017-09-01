@@ -11,6 +11,6 @@
 <title>Menu</title>
 </head>
 <body>
-	Dimitri tes vraiment bon
+	Dimitri tes vraiment bon !
 </body>
 </html>
