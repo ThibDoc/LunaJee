@@ -42,6 +42,7 @@ public class ClientDAOImpl implements ClientDAO{
 		if(null != client) this.sessionFactory.getCurrentSession().delete(client);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Client> getAllClients() {
 		return this.sessionFactory.getCurrentSession().createQuery("from Client").list();

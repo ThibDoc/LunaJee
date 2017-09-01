@@ -2,7 +2,6 @@ package com.formation.test;
 
 import static org.junit.Assert.assertEquals;
 
-import java.time.Instant;
 import java.util.List;
 
 import org.junit.BeforeClass;
@@ -14,10 +13,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.formation.daos.ArticleDAO;
 import com.formation.daos.CategorieDAO;
-import com.formation.entity.Adresse;
 import com.formation.entity.Article;
 import com.formation.entity.Categorie;
-import com.formation.util.GestionDates;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ArticleDAOImplTest {

@@ -2,11 +2,9 @@ package com.formation.test;
 
 import static org.junit.Assert.assertEquals;
 
-import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -18,7 +16,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.formation.daos.ClientDAO;
 import com.formation.entity.Adresse;
 import com.formation.entity.Client;
-import com.formation.util.GestionDates;
 
 
 

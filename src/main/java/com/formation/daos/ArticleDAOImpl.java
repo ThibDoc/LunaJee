@@ -42,6 +42,7 @@ public class ArticleDAOImpl implements ArticleDAO{
 		if(null != article) this.sessionFactory.getCurrentSession().delete(article);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Article> getAllArticles() {
 		return this.sessionFactory.getCurrentSession().createQuery("from Article").list();

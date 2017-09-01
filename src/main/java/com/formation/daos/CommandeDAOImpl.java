@@ -42,6 +42,7 @@ public class CommandeDAOImpl implements CommandeDAO{
 		if(null != commande) this.sessionFactory.getCurrentSession().delete(commande);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Commande> getAllCommandes() {
 		return this.sessionFactory.getCurrentSession().createQuery("from Commande").list();

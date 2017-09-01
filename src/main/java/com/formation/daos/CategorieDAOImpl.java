@@ -42,6 +42,7 @@ public class CategorieDAOImpl implements CategorieDAO{
 		if(null != categorie) this.sessionFactory.getCurrentSession().delete(categorie);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Categorie> getAllCategories() {
 		return this.sessionFactory.getCurrentSession().createQuery("from Categorie").list();
