@@ -22,7 +22,7 @@ import com.formation.util.GestionDates;
 
 
 
-@FixMethodOrder(MethodSorters.JVM)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ClientDAOImplTest {
 
 	private static ApplicationContext context;
@@ -35,7 +35,7 @@ public class ClientDAOImplTest {
 	}
 
 	@Test
-	public void testCreateClient() {
+	public void atestCreateClient() {
 		int expectedResult = 1;
 		Adresse adresse = new Adresse("Rue de la Puqée du Calui", "08888", "Pouilly");
 		Client client = new Client("Docquier", "Thibault", true,  new Date(2011, 05, 11, 11, 55), adresse);
@@ -44,7 +44,7 @@ public class ClientDAOImplTest {
 	}
 
 	@Test
-	public void testGetAllClients() {
+	public void btestGetAllClients() {
 		List<Client> categorieList = clientDAO.getAllClients();
 		assertEquals(categorieList.size(), 1);
 	}
@@ -56,7 +56,7 @@ public class ClientDAOImplTest {
 	}
 
 	@Test
-	public void testUpdateClient() {
+	public void ctestUpdateClient() {
 		Client client = clientDAO.getClient(1);
 		client.setNom("Thib");
 		clientDAO.updateClient(client);
@@ -67,7 +67,7 @@ public class ClientDAOImplTest {
 
 
 	@Test
-	public void testDeleteClient() {
+	public void dtestDeleteClient() {
 		clientDAO.DeleteClient(clientDAO.getClient(1).getCode());
 		assertEquals(clientDAO.getClient(1), null);
 	}

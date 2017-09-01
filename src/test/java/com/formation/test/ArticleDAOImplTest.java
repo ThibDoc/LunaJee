@@ -19,7 +19,7 @@ import com.formation.entity.Article;
 import com.formation.entity.Categorie;
 import com.formation.util.GestionDates;
 
-@FixMethodOrder(MethodSorters.JVM)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ArticleDAOImplTest {
 
 	private static ApplicationContext context;
@@ -34,7 +34,7 @@ public class ArticleDAOImplTest {
 	}
 
 	@Test
-	public void testCreateArticle() {
+	public void atestCreateArticle() {
 		Categorie categorie = new Categorie("Electroménager");
 		categorieDAO.CreateCategorie(categorie);
 		Article article = new Article(1, "Lave Linge", 50, 399);
@@ -43,19 +43,19 @@ public class ArticleDAOImplTest {
 	}
 
 	@Test
-	public void testGetAllArticles() {
+	public void btestGetAllArticles() {
 		List<Article> categorieList = articleDAO.getAllArticles();
 		assertEquals(categorieList.size(), 1);
 	}
 	
 	@Test
-	public void testGetArticle() {
+	public void ctestGetArticle() {
 		Article article = articleDAO.getArticle(1);
 		assertEquals(article.getCode(), 1);
 	}
 
 	@Test
-	public void testUpdateArticle() {
+	public void dtestUpdateArticle() {
 		Article article = articleDAO.getArticle(1);
 		article.setDesignation("Lave Vaisselle");
 		articleDAO.updateArticle(article);
@@ -66,7 +66,7 @@ public class ArticleDAOImplTest {
 
 
 	@Test
-	public void testDeleteArticle() {
+	public void etestDeleteArticle() {
 		articleDAO.DeleteArticle(articleDAO.getArticle(1).getCode());
 		assertEquals(articleDAO.getArticle(1), null);
 	}
