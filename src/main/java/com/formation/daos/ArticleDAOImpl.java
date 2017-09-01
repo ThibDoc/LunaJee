@@ -28,7 +28,7 @@ public class ArticleDAOImpl implements ArticleDAO{
 
 	@Override
 	public Article getArticle(int code) {
-		return this.sessionFactory.getCurrentSession().load(Article.class, code);
+		return this.sessionFactory.getCurrentSession().find(Article.class, code);
 	}
 
 	@Override

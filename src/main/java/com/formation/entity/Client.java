@@ -18,21 +18,6 @@ import javax.persistence.OneToOne;
 import	com.formation.util.GestionDates;
 
 @Entity
-@NamedQueries({
-	
-		@NamedQuery(name = "chercherClient", query = 
-				"SELECT c FROM Client c "
-				+ "WHERE c.code LIKE :recherche "
-				+ "OR c.nom LIKE :recherche "
-				+ "OR c.prenom LIKE :recherche"),
-				
-		@NamedQuery(name = "chercherPrecis", query = 
-				"SELECT c FROM Client c "
-				+ "WHERE c.code LIKE ?1 "
-				+ "AND c.nom LIKE ?2 "
-				+ "AND c.prenom LIKE ?3")
-		
-})
 public class Client implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -44,7 +29,7 @@ public class Client implements Serializable {
 	@GeneratedValue
 	private int code;
 
-	@Basic
+
 	private String nom;
 
 	private String prenom;

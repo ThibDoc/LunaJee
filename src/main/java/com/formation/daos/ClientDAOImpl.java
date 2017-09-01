@@ -28,7 +28,7 @@ public class ClientDAOImpl implements ClientDAO{
 
 	@Override
 	public Client getClient(int code) {
-		return this.sessionFactory.getCurrentSession().load(Client.class, code);
+		return this.sessionFactory.getCurrentSession().find(Client.class, code);
 	}
 
 	@Override

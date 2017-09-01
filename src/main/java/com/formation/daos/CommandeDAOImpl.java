@@ -28,7 +28,7 @@ public class CommandeDAOImpl implements CommandeDAO{
 
 	@Override
 	public Commande getCommande(int code) {
-		return this.sessionFactory.getCurrentSession().load(Commande.class, code);
+		return this.sessionFactory.getCurrentSession().find(Commande.class, code);
 	}
 
 	@Override
