@@ -8,14 +8,14 @@
     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
   
     <http auto-config="true">
-        <intercept-url pattern="/insert" access="ROLE_ADMIN" /> <!-- Pour la page insert il faut être admin -->
+        <intercept-url pattern="/menu" access="ROLE_ADMIN" /> <!-- Pour la page insert il faut être admin -->
         <intercept-url pattern="/user" access="ROLE_USER" /><!-- Pour la page user il faut être user -->
          
         <access-denied-handler error-page="/WEB-INF/pages/403.jsp" /> <!-- Page de redirection si on a pas l'autorisation -->
          
         <form-login
             login-page="/index"
-            default-target-url="/insert"
+            default-target-url="/menu"
             authentication-failure-url="/index?error"
             username-parameter="username"
             password-parameter="password" /> <!-- Page de login / Redirection du boutton / Redirection mauvaise id / paramettre -->

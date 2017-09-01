@@ -8,20 +8,9 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/dd.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Connexions</title>
+<title>Menu</title>
 </head>
 <body>
-	<div class="titre">Luna</div>
-	<div class="container">
-		<div class="connexion">
-			<s:form method="post" action="j_spring_security_check">
-				<s:textfield cssClass="textfieldcon" label="Nom d'utilisateur" labelposition="top" type="text" 
-					name='username' />
-				<s:textfield cssClass="textfieldcon" label="Mot de passe" labelposition="top" type="password"
-					name="password" />
-				<s:submit name="Valider" value="Connexion" />
-			</s:form>
-		</div>
-	</div>
+	Dimitri tes vraiment bon
 </body>
 </html>
