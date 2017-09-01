@@ -36,7 +36,7 @@ public class CommandeDAOImplTest {
 		int expectedResult = 1;
 		Client client = new Client();
 		ModeReglements modeReglements = new ModeReglements();
-		Commande commande = new Commande()
+		Commande commande = new Commande();
 		commandeDAO.CreateCommande(commande);
 		assertEquals(expectedResult, commandeDAO.getAllCommandes().size());
 	}

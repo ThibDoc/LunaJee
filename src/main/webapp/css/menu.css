@@ -4,24 +4,80 @@ body{
 	background: url(../css/img/fond.jpg) no-repeat center fixed;
 	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
   	background-size: cover; /* version standardisée */
+  	
+}
+
+h1{
+	color: white;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-style: italic;
+}
+
+.container{
+	margin-top: 100px;
+}
+
+.divCli{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divMid{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divArt{
+	margin-left: 200px;
 }
 
 .bouttonClient{
-	background: blue;
-	 border-color: blue;
+	background: url(../css/img/People-128.png);
+	background-size: cover;
+	border-radius:50%;
+	border : none;
+	width:150px;
+	height:150px;
 }
 
 .bouttonArticle{
-	background: green;
-	 border-color: green;
+	background: url(../css/img/Product-128.png);
+	background-size: cover;
+	border-radius:50%;
+	border : none;
+	width:150px;
+	height:150px;
 }
 
 .bouttonStats{
-	background: red;
-	 border-color: red;
+	background: url(../css/img/Diagram-128.png);
+	background-size: cover;
+	border-radius:50%;
+	border : none;
+	width:150px;
+	height:150px;
 }
 
 .bouttonCommande{
-	background: orange;
-	 border-color: orange;
+	background: url(../css/img/Shopping-Bag-128.png);
+	background-size: cover;
+	border-radius:50%;
+	border : none;
+	width:150px;
+	height:150px;
+}
+
+.logo{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin-top: 40px;
+	width:100px;
+	height: 100px;
+	background-image: url(../css/img/actif-solution.png);
+	background-size: cover;
+
 }
