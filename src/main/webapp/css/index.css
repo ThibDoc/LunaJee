@@ -1,9 +1,9 @@
 @CHARSET "ISO-8859-1";
 
 body{
-	background-image: url("../css/IMG_0385_800_clqdgNG150.jpg");
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
+	background: url(../css/img/fond.jpg) no-repeat center fixed;
+	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  	background-size: cover; /* version standardisée */
 }
 
 div.titre {
@@ -26,14 +26,14 @@ div.container {
 
 div.connexion {
     width: auto;
-    box-shadow: rgb(172, 172, 172) 0px 0px 7px 1px;
+    box-shadow: #A283FA 0px 0px 7px 1px;
     text-align: center;
     margin-top: 200px;
     font-weight: bold;
-    background-color: #FFFFFF;
+    background-color: #A283FA;
     border-width: 1px;
     border-style: solid;
-    border-color: rgb(172, 172, 172);
+    border-color: #A283FA;
     border-image: initial;
     border-radius: 5px;
 }

@@ -6,7 +6,7 @@
 <html>
 <head>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/dd.css" type="text/css">
+	href="${pageContext.request.contextPath}/css/index.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Connexions</title>
 </head>

@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	background: url(../css/img/fond.jpg) no-repeat center fixed;
+	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  	background-size: cover; /* version standardisée */
+}
+
+.bouttonClient{
+	background: blue;
+	 border-color: blue;
+}
+
+.bouttonArticle{
+	background: green;
+	 border-color: green;
+}
+
+.bouttonStats{
+	background: red;
+	 border-color: red;
+}
+
+.bouttonCommande{
+	background: orange;
+	 border-color: orange;
+}
