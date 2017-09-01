@@ -8,11 +8,11 @@ public interface CommandeDAO {
 	
 	public void CreateCommande(Commande commande);
 	
-	public Commande getCommande(Integer code);
+	public Commande getCommande(int code);
 	
 	public void updateCommande(Commande commande);
 	
-	public void DeleteCommande(Integer code);
+	public void DeleteCommande(int code);
 	
 	public List<Commande> getAllEmployees();
 

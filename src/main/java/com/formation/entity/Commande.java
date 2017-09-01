@@ -10,6 +10,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -39,7 +41,8 @@ public class Commande implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String code;
+	@GeneratedValue
+	private int code;
 
 	@ManyToOne
 	private Client client;
@@ -58,7 +61,7 @@ public class Commande implements Serializable {
 	/*
 	 * Constructeur 1
 	 */
-	public Commande(String code) {
+	public Commande(int code) {
 		this.code = code;
 	}
 
@@ -72,7 +75,7 @@ public class Commande implements Serializable {
 	/*
 	 * Accesseurs
 	 */
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
 

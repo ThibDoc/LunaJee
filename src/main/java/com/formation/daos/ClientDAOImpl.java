@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.formation.entity.Client;
 
 @Repository("ClientDAO")
-@Transactional 
+@Transactional
 public class ClientDAOImpl implements ClientDAO{
 
 	@Autowired 
@@ -27,8 +27,8 @@ public class ClientDAOImpl implements ClientDAO{
 	}
 
 	@Override
-	public Client getClient(String code) {
-		return sessionFactory.getCurrentSession().load(Client.class, code);
+	public Client getClient(int code) {
+		return this.sessionFactory.getCurrentSession().load(Client.class, code);
 	}
 
 	@Override
@@ -37,8 +37,8 @@ public class ClientDAOImpl implements ClientDAO{
 	}
 
 	@Override
-	public void DeleteClient(String code) {
-		Client client = (Client) sessionFactory.getCurrentSession().load(Client.class, code);
+	public void DeleteClient(int code) {
+		Client client = (Client) this.sessionFactory.getCurrentSession().load(Client.class, code);
 		if(null != client) this.sessionFactory.getCurrentSession().delete(client);
 	}
 

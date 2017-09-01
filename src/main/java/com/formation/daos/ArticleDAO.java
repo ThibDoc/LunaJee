@@ -8,11 +8,11 @@ public interface ArticleDAO {
 	
 	public void CreateArticle(Article article);
 	
-	public Article getArticle(Integer code);
+	public Article getArticle(int code);
 	
 	public void updateArticle(Article article);
 	
-	public void DeleteArticle(Integer code);
+	public void DeleteArticle(int code);
 	
 	public List<Article> getAllEmployees();
 

@@ -11,6 +11,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -23,7 +25,8 @@ public class Article implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String code;
+	@GeneratedValue
+	private int code;
 
 	@ManyToOne(cascade = { CascadeType.PERSIST })
 	private Categorie categorie;
@@ -45,7 +48,7 @@ public class Article implements Serializable {
 	/*
 	 * Constructeur
 	 */
-	public Article(String code, String codeCategorie,
+	public Article(int code, int codeCategorie,
 			String designation,
 			int quantite, double prixUnitaire,
 			Instant date) {
@@ -56,7 +59,7 @@ public class Article implements Serializable {
 				date);
 	}
 	
-	public Article(String code, Categorie categorie,
+	public Article(int code, Categorie categorie,
 			String designation,
 			int quantite, double prixUnitaire,
 			Instant date) {
@@ -77,7 +80,7 @@ public class Article implements Serializable {
 	/*
 	 * Accesseurs
 	 */
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
 
@@ -108,7 +111,7 @@ public class Article implements Serializable {
 	/*
 	 * Mutateurs
 	 */
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 

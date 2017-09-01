@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /*
@@ -22,7 +24,8 @@ public class Categorie implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String code;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int code;
 
 	@Basic
 	private String designation;
@@ -31,11 +34,11 @@ public class Categorie implements Serializable {
 		super();
 	}
 
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
 
-	public Categorie setCode(String code) {
+	public Categorie setCode(int code) {
 		this.code = code;
 		return this;
 	}

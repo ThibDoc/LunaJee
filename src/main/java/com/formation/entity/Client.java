@@ -8,6 +8,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -39,7 +41,8 @@ public class Client implements Serializable {
 	// -------------------------------
 	// l'identifiant en base de données
 	@Id
-	private String code;
+	@GeneratedValue
+	private int code;
 
 	@Basic
 	private String nom;
@@ -55,7 +58,7 @@ public class Client implements Serializable {
 
 	// Getters de base
 	// ---------------
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
 
@@ -76,7 +79,7 @@ public class Client implements Serializable {
 	}
 
 	// Setters
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 
@@ -120,7 +123,7 @@ public class Client implements Serializable {
 	 * Utilisé par JPA.
 	 */
 	public Client() {
-		super();
+		
 	}
 
 	@Override

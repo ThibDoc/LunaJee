@@ -21,6 +21,10 @@ public class Adresse implements Serializable {
 		this.codePostal = codePostal;
 		this.ville = ville;
 	}
+	
+	public Adresse() {
+	
+	}
 
 	private String rue;
 	

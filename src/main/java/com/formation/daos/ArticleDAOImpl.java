@@ -27,8 +27,8 @@ public class ArticleDAOImpl implements ArticleDAO{
 	}
 
 	@Override
-	public Article getArticle(Integer code) {
-		return sessionFactory.getCurrentSession().load(Article.class, code);
+	public Article getArticle(int code) {
+		return this.sessionFactory.getCurrentSession().load(Article.class, code);
 	}
 
 	@Override
@@ -37,8 +37,8 @@ public class ArticleDAOImpl implements ArticleDAO{
 	}
 
 	@Override
-	public void DeleteArticle(Integer code) {
-		Article article = (Article) sessionFactory.getCurrentSession().load(Article.class, code);
+	public void DeleteArticle(int code) {
+		Article article = (Article) this.sessionFactory.getCurrentSession().load(Article.class, code);
 		if(null != article) this.sessionFactory.getCurrentSession().delete(article);
 	}
 

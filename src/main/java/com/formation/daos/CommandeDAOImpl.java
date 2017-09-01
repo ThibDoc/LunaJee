@@ -27,8 +27,8 @@ public class CommandeDAOImpl implements CommandeDAO{
 	}
 
 	@Override
-	public Commande getCommande(Integer code) {
-		return sessionFactory.getCurrentSession().load(Commande.class, code);
+	public Commande getCommande(int code) {
+		return this.sessionFactory.getCurrentSession().load(Commande.class, code);
 	}
 
 	@Override
@@ -37,8 +37,8 @@ public class CommandeDAOImpl implements CommandeDAO{
 	}
 
 	@Override
-	public void DeleteCommande(Integer code) {
-		Commande commande = (Commande) sessionFactory.getCurrentSession().load(Commande.class, code);
+	public void DeleteCommande(int code) {
+		Commande commande = (Commande) this.sessionFactory.getCurrentSession().load(Commande.class, code);
 		if(null != commande) this.sessionFactory.getCurrentSession().delete(commande);
 	}
 
