@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import	com.formation.util.GestionDates;
 
@@ -36,7 +38,8 @@ public class Client implements Serializable {
 
 	private boolean carte_fidele;
 
-	private LocalDate date;
+	@Temporal(TemporalType.DATE)
+	private Date date;
 
 	@OneToOne(cascade=CascadeType.ALL)
 	private Adresse adresse;
@@ -59,10 +62,6 @@ public class Client implements Serializable {
 		return carte_fidele;
 	}
 
-	public Instant getDateCreation() {
-		return GestionDates.instant(date);
-	}
-
 	// Setters
 	public void setCode(int code) {
 		this.code = code;
@@ -80,9 +79,6 @@ public class Client implements Serializable {
 		this.carte_fidele = carte_fidele;
 	}
 
-	public void setDateCreation(Instant date_creation) {
-		this.date = GestionDates.date(date_creation);
-	}
 	
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
@@ -92,7 +88,7 @@ public class Client implements Serializable {
 		return this.adresse;
 	}
 
-	public Client(String nom, String prenom, boolean carte_fidele, LocalDate date, Adresse adresse) {
+	public Client(String nom, String prenom, boolean carte_fidele, Date date, Adresse adresse) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -118,12 +114,15 @@ public class Client implements Serializable {
 				+ ", date=" + this.date + "]";
 	}
 
-	// ------------------------------------
-	// Méthodes utilisées par Jasper
-	// ------------------------------------
-	@Deprecated
-	public Date getCreation() {
-		return Date.from(getDateCreation());
+	public Date getDate() {
+		return date;
 	}
-	// ------------------------------------
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	
+
+	
 }
