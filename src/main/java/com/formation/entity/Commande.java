@@ -11,6 +11,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -50,8 +51,8 @@ public class Commande implements Serializable {
 	@JoinColumn(name = "mode_reglement_code")
 	private ModeReglements modeReglement;
 
-	@Convert(converter=ConvertisseurLocalDateTime.class)
-	private LocalDateTime date;
+	
+	private Date date;
 
 	@OneToMany(	cascade = { CascadeType.ALL },
 				mappedBy = "commande")
@@ -60,7 +61,7 @@ public class Commande implements Serializable {
 	/*
 	 * Constructeur 1
 	 */
-	public Commande(Client client, ModeReglements modeReglement, LocalDateTime date, List<Ligne> lignes) {
+	public Commande(Client client, ModeReglements modeReglement, Date date, List<Ligne> lignes) {
 		super();
 		this.client = client;
 		this.modeReglement = modeReglement;
@@ -104,9 +105,7 @@ public class Commande implements Serializable {
 		return modeReglement;
 	}
 
-	public Instant getInstant() {
-		return GestionDates.instant(date);
-	}
+
 
 	public void setClient(Client client) {
 		this.client = client;
@@ -116,12 +115,12 @@ public class Commande implements Serializable {
 		this.modeReglement = leReglement;
 	}
 
-	void setDate(LocalDateTime date) {
+
+	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	public LocalDateTime maintenant() {
-		setDate(GestionDates.maintenant());
+
+	public Date getDate() {
 		return date;
 	}
 
@@ -134,12 +133,5 @@ public class Commande implements Serializable {
 		lignes.add(uneLigne);
 	}
 
-	// ------------------------------------
-	// Méthodes utilisées par Jasper
-	// ------------------------------------
-	@Deprecated
-	public Date getDate() {
-		return Date.from(getInstant());
-	}
-	// ------------------------------------
+
 }

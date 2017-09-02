@@ -2,6 +2,8 @@ package com.formation.test;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.BeforeClass;
@@ -12,8 +14,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.formation.daos.CommandeDAO;
+
 import com.formation.entity.Client;
 import com.formation.entity.Commande;
+import com.formation.entity.Ligne;
 import com.formation.entity.ModeReglements;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -33,8 +37,10 @@ public class CommandeDAOImplTest {
 		int expectedResult = 1;
 		Client client = new Client();
 		ModeReglements modeReglements = new ModeReglements();
-		Commande commande = new Commande();
-		commandeDAO.CreateCommande(commande);
+		List<Ligne> lignes = new ArrayList<>();
+		Commande commande = new Commande(client, modeReglements, new Date(), lignes);
+		
+		commandeDAO.CreateCommande(commande);;
 		assertEquals(expectedResult, commandeDAO.getAllCommandes().size());
 	}
 
@@ -53,10 +59,11 @@ public class CommandeDAOImplTest {
 	@Test
 	public void ctestUpdateCommande() {
 		Commande commande = commandeDAO.getCommande(1);
-		//commande.setNom("Thib");
+		Date date = new Date();
+		commande.setDate(date);
 		commandeDAO.updateCommande(commande);
 		Commande categorieResult = commandeDAO.getCommande(1);
-		//assertEquals("Thib", categorieResult.getNom());
+		assertEquals("Thib", categorieResult.getDate());
 	}
 
 
