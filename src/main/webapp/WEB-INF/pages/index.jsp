@@ -12,14 +12,13 @@
 </head>
 <body>
 	<div class="titre">Luna</div>
-	<div class="container">
-		<div class="connexion">
+	<div class="blockCo">
+		<h1>Login</h1>
+		<div class="input">
 			<s:form method="post" action="j_spring_security_check">
-				<s:textfield cssClass="textfieldcon" label="Nom d'utilisateur" labelposition="top" type="text" 
-					name='username' />
-				<s:textfield cssClass="textfieldcon" label="Mot de passe" labelposition="top" type="password"
-					name="password" />
-				<s:submit name="Valider" value="Connexion" />
+				<s:textfield cssClass="divUser" type="text" name='username' placeholder="Username"/>
+				<s:textfield cssClass="divPass" type="password" name="password"  placeholder="Password"/>
+				<s:submit cssClass="divSub" name="Valider" value="Valider" />
 			</s:form>
 		</div>
 	</div>

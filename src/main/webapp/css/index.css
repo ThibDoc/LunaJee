@@ -9,46 +9,68 @@ body{
 div.titre {
     font-style: italic;
     font-weight: bold;
-    color: rgb(91, 91, 162);
+    color: #AA86FE;
     font-size: 40px;
     text-align: center;
 }
 
-div.container {
-	font-size: 20px;
-    height: 100%;
-    display: flex;
+div.blockCo{
+	width: 400px;
+	height: 300px;
+	background-color: white;
+	margin: 0 auto;
+	margin-top: 100px;
+	border: red;
+	border-radius: 7px;
+	border-top: solid #AA86FE 6px;
+	border-top-left-radius: 5x;
+	border-top-right-radius: 5px;
+}
+
+div.blockCo, h1{
+	text-align: center;
+	font-size: 30px;
+}
+
+div.input{
+	display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0px;
-    margin: 0px;
+    font-style: italic;
 }
 
-div.connexion {
-    width: auto;
-    box-shadow: #A283FA 0px 0px 7px 1px;
-    text-align: center;
-    margin-top: 200px;
-    font-weight: bold;
-    background-color: #A283FA;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #A283FA;
-    border-image: initial;
-    border-radius: 5px;
+.divUser{
+	font-weight: bold;
+	background-image: url(../css/img/dd.png);
+ 	background-position: 7px center;
+    background-repeat: no-repeat;
+  	background-size: 25px;
+  	padding-left: 40px;
+  	width: 250px;
+  	height: 30px;
+  	margin-top: 40px;
 }
 
-.textfieldcon {
-    margin-bottom: 20px;
-    width: 150px;
-    height: 30px;
-    border-width: initial;
-    border-style: groove;
-    border-color: initial;
-    border-image: initial;
-    border-radius: 5px;
+.divPass{
+	font-weight: bold;
+	background-image: url(../css/img/ze.png);
+ 	background-position: 10px center;
+    background-repeat: no-repeat;
+  	background-size: 20px;
+  	padding-left: 40px;
+  	width: 250px;
+  	height: 30px;
+	margin-top: 10px;
 }
 
-.textfieldcon:hover{
-	box-shadow: #65B6F3 0px 0px 7px 1px;
+.divSub{
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	background-color: #AA86FE;
+	width: 290px;
+	height: 30px;
+	border: none;
+	border-radius: 5px;
+	margin-top: 10px;
 }
