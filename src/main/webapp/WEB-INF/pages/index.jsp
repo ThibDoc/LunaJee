@@ -14,6 +14,7 @@
 	<div class="titre">Luna</div>
 	<div class="blockCo">
 		<h1>Login</h1>
+		<div class="error"><s:text name="">${errorTxt}</s:text></div>
 		<div class="input">
 			<s:form method="post" action="j_spring_security_check">
 				<s:textfield cssClass="divUser" type="text" name='username' placeholder="Username"/>

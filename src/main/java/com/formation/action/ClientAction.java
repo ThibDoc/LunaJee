@@ -6,6 +6,7 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
 import org.apache.struts2.convention.annotation.Results;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.daos.ClientDAO;

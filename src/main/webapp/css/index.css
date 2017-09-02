@@ -14,6 +14,12 @@ div.titre {
     text-align: center;
 }
 
+div.error{
+	color: red;
+	 font-size: 20px;
+	 margin-top: 40px;
+}
+
 div.blockCo{
 	width: 400px;
 	height: 300px;
@@ -30,6 +36,7 @@ div.blockCo{
 div.blockCo, h1{
 	text-align: center;
 	font-size: 30px;
+	font-family: 'Open Sans', sans-serif;
 }
 
 div.input{
@@ -48,7 +55,9 @@ div.input{
   	padding-left: 40px;
   	width: 250px;
   	height: 30px;
-  	margin-top: 40px;
+  	border: solid #9E9E9E 1px;
+  	border-radius: 5px;
+  	margin-top: 5px;
 }
 
 .divPass{
@@ -61,6 +70,8 @@ div.input{
   	width: 250px;
   	height: 30px;
 	margin-top: 10px;
+	border: solid #9E9E9E 1px;
+  	border-radius: 5px;
 }
 
 .divSub{
@@ -73,4 +84,27 @@ div.input{
 	border: none;
 	border-radius: 5px;
 	margin-top: 10px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.divUser:hover{
+	background-image: url(../css/img/dd2.png);
+  	border: solid #AA86FE 1px;
+}
+
+.divUser:focus { 
+	outline: none !important;
+    background-image: url(../css/img/dd2.png);
+    border: solid #AA86FE 1px;
+}
+
+.divPass:hover{
+	background-image: url(../css/img/ze2.png);
+  	border: solid #AA86FE 1px;
+}
+
+.divPass:focus { 
+	outline: none !important;
+    background-image: url(../css/img/ze2.png);
+    border: solid #AA86FE 1px;
 }

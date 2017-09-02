@@ -16,7 +16,7 @@
         <form-login
             login-page="/index"
             default-target-url="/menu"
-            authentication-failure-url="/index?error"
+            authentication-failure-url="/gg"
             username-parameter="username"
             password-parameter="password" /> <!-- Page de login / Redirection du boutton / Redirection mauvaise id / paramettre -->
         <logout logout-success-url="/index?logout" /> <!-- Page de redirection pour la déconnexion -->
