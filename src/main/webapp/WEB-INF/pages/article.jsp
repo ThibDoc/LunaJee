@@ -33,11 +33,11 @@
 	</table>
 	
 	<s:form method="post" action="insertArticle" theme="css_xhtml">
-				<s:textfield type="text" name="article.designation" label="designation" labelposition="left"/>
-				<s:textfield type="text" name="article.prixUnitaire" label="prixUnitaire" labelposition="left"/>
-				<s:textfield type="text" name="article.quantite" label="quantite" labelposition="left"/>
-				<s:select name="categ" list="listCateg"/>
-				<s:submit name="Valider" value="Inserer"/>
-			</s:form>
+		<s:textfield type="text" name="article.designation" label="designation" labelposition="left"/>
+		<s:textfield type="text" name="article.prixUnitaire" label="prixUnitaire" labelposition="left"/>
+		<s:textfield type="text" name="article.quantite" label="quantite" labelposition="left"/>
+		<s:select name="categ" list="listCateg" listValue="designation" listKey="code"></s:select>
+		<s:submit name="Valider" value="Inserer"/>
+	</s:form>
 </body>
 </html>

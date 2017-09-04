@@ -7,8 +7,6 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.formation.daos.ArticleDAO;
 import com.formation.daos.CategorieDAO;
 import com.formation.entity.Article;
 import com.formation.entity.Categorie;
@@ -25,11 +23,9 @@ import com.opensymphony.xwork2.ModelDriven;
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
 
 	private static final long serialVersionUID = 1L;
+	
 	private Article article = new Article();
-	
-	private Categorie categ;
-	
-	List<Article> listArticles;
+	private int categ;
 
 	@Autowired
 	private ArticleService articleDAO;
@@ -38,7 +34,8 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	private CategorieDAO categorieDAO;
 	
 	List<Categorie> listCateg;
-
+	List<Article> listArticles;
+	
 	@Override
 	public String execute()throws Exception {
 		listCateg = categorieDAO.getAllCategories();
@@ -49,9 +46,9 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	@Action("insertArticle")
 	public String insertArticle()throws Exception {
 		listCateg = categorieDAO.getAllCategories();
+		article.setReference(categorieDAO.getCategorie(categ));
 		articleDAO.CreateArticle(getModel());
 		listArticles = articleDAO.getAllArticles();
-		System.out.println(categ);
 		return "insert";
 	}
 
@@ -77,7 +74,6 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	@Override
 	public Article getModel() {
-		// TODO Auto-generated method stub
 		return article;
 	}
 
@@ -89,15 +85,12 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		this.listCateg = listCateg;
 	}
 
-	public Categorie getCateg() {
+	public int getCateg() {
 		return categ;
 	}
 
-	public void setCateg(Categorie categ) {
+	public void setCateg(int categ) {
 		this.categ = categ;
 	}
 
-	
-	
-	
 }
