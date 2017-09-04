@@ -20,6 +20,7 @@
 			<td>Prix Unitaire</td>
 			<td>Quantite</td>
 			<td>Categorie</td>
+			<td>Modif/Supr</td>
 		</tr>
 		<c:forEach  items="${listArticles}" var="article">
    			<tr>
@@ -28,6 +29,11 @@
 				<td> ${article.prixUnitaire}</td>
 				<td> ${article.quantite}</td>
 				<td> ${article.categorie.designation}</td>
+				<td> 
+					<s:a action="deleteArticle">Supprimer
+						<s:param name="codeArt">${article.code}</s:param>
+					</s:a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -39,5 +45,6 @@
 		<s:select name="categ" list="listCateg" listValue="designation" listKey="code"></s:select>
 		<s:submit name="Valider" value="Inserer"/>
 	</s:form>
+	
 </body>
 </html>
