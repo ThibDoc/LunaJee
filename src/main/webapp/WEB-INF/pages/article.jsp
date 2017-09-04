@@ -20,7 +20,7 @@
 			<td>Prix Unitaire</td>
 			<td>Quantite</td>
 			<td>Categorie</td>
-			<td>Modif/Supr</td>
+			<td>Supprimer / Modifier</td>
 		</tr>
 		<c:forEach  items="${listArticles}" var="article">
    			<tr>
@@ -30,9 +30,14 @@
 				<td> ${article.quantite}</td>
 				<td> ${article.categorie.designation}</td>
 				<td> 
-					<s:a action="deleteArticle">Supprimer
-						<s:param name="codeArt">${article.code}</s:param>
+					<s:a action="deleteArticle">
+					Supprimer<s:param name="codeArt">${article.code}</s:param>
 					</s:a>
+					<s:text name=" / "/>
+					<s:a action="updateArticlePage">
+					Modifier<s:param name="codeArt">${article.code}</s:param>
+					</s:a>
+					
 				</td>
 			</tr>
 		</c:forEach>

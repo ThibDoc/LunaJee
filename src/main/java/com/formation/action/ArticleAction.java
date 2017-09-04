@@ -20,6 +20,8 @@ import com.opensymphony.xwork2.ModelDriven;
 	@Result(name = "success", location = "article.jsp"),
 	@Result(name = "insert", location = "article.jsp"),
 	@Result(name = "delete", location = "article.jsp"),
+	@Result(name = "update", location = "article.jsp"),
+	@Result(name = "updatePage", location = "updateArticle.jsp"),
 })
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
 
@@ -41,26 +43,41 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	
 	@Override
 	public String execute()throws Exception {
-		listCateg = categorieDAO.getAllCategories();
-		listArticles = articleDAO.getAllArticles();
+		load();
 		return SUCCESS;
 	}
 	
 	@Action("insertArticle")
 	public String insertArticle()throws Exception {
-		listCateg = categorieDAO.getAllCategories();
+		load();
 		article.setReference(categorieDAO.getCategorie(categ));
 		articleDAO.CreateArticle(getModel());
-		listArticles = articleDAO.getAllArticles();
+		load();
 		return "insert";
 	}
 
 	@Action("deleteArticle")
-	public String updateArticle()throws Exception {
+	public String deleteArticle()throws Exception {
 		articleDAO.DeleteArticle(codeArt);
-		listArticles = articleDAO.getAllArticles();
-		listCateg = categorieDAO.getAllCategories();
+		load();
 		return "delete";
+	}
+	
+	@Action("updateArticlePage")
+	public String updateArticlePage()throws Exception {
+		load();
+		articleUpdate = articleDAO.getArticle(codeArt);
+		articleUpdate.setCode(codeArt);
+		return "updatePage";
+	}
+	
+	@Action("updateArticle")
+	public String updateArticle()throws Exception {
+		load();
+		articleUpdate.setReference(categorieDAO.getCategorie(categ));
+		articleDAO.updateArticle(articleUpdate);
+		load();
+		return "update";
 	}
 	
 	
@@ -120,6 +137,9 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		this.codeArt = codeArt;
 	}
 	
-	
+	public void load() {
+		listArticles = articleDAO.getAllArticles();
+		listCateg = categorieDAO.getAllCategories();
+	}
 
 }
