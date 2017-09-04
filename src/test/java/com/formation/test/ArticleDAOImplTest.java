@@ -35,7 +35,7 @@ public class ArticleDAOImplTest {
 	public void atestCreateArticle() {
 		Categorie categorie = new Categorie("Electroménager");
 		categorieDAO.CreateCategorie(categorie);
-		Article article = new Article(1, "Lave Linge", 50, 399);
+		Article article = new Article(categorie, "Lave Linge", 50, 399);
 		articleDAO.CreateArticle(article);
 		assertEquals(1, articleDAO.getAllArticles().size());
 	}

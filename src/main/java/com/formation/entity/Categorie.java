@@ -34,17 +34,17 @@ public class Categorie implements Serializable {
 		return code;
 	}
 
-	public Categorie setCode(int code) {
+	public void setCode(int code) {
 		this.code = code;
-		return this;
 	}
 
 	public String getDesignation() {
 		return designation;
 	}
 
-	public Categorie setDesignation(String designation) {
+	public void setDesignation(String designation) {
 		this.designation = designation;
-		return this;
 	}
+
+	
 }

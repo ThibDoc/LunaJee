@@ -36,17 +36,6 @@ public class Article implements Serializable {
 	@Column(name="prix_unitaire")
 	private double prixUnitaire;
 
-	/*
-	 * Constructeur
-	 */
-	public Article( int codeCategorie,
-			String designation,
-			int quantite, double prixUnitaire) {
-		this(
-				new Categorie().setCode(codeCategorie),
-				designation, 
-				quantite, prixUnitaire);
-	}
 	
 	public Article(Categorie categorie,
 			String designation,

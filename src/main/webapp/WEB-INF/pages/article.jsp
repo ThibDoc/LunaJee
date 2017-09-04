@@ -36,7 +36,7 @@
 				<s:textfield type="text" name="article.designation" label="designation" labelposition="left"/>
 				<s:textfield type="text" name="article.prixUnitaire" label="prixUnitaire" labelposition="left"/>
 				<s:textfield type="text" name="article.quantite" label="quantite" labelposition="left"/>
-				<s:textfield type="text" name="article.categorie.code" label="codeCateg" labelposition="left"/>
+				<s:select name="categ" list="listCateg"/>
 				<s:submit name="Valider" value="Inserer"/>
 			</s:form>
 </body>
