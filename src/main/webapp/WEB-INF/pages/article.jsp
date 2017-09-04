@@ -13,43 +13,48 @@
 </head>
 <body>
 	
-	<table>
-		<tr>
-			<td>Code</td>
-			<td>Designation</td>
-			<td>Prix Unitaire</td>
-			<td>Quantite</td>
-			<td>Categorie</td>
-			<td>Supprimer / Modifier</td>
-		</tr>
-		<c:forEach  items="${listArticles}" var="article">
-   			<tr>
-   				<td> ${article.code}</td>
-				<td> ${article.designation}</td>
-				<td> ${article.prixUnitaire}</td>
-				<td> ${article.quantite}</td>
-				<td> ${article.categorie.designation}</td>
-				<td> 
-					<s:a action="deleteArticle">
-					Supprimer<s:param name="codeArt">${article.code}</s:param>
-					</s:a>
-					<s:text name=" / "/>
-					<s:a action="updateArticlePage">
-					Modifier<s:param name="codeArt">${article.code}</s:param>
-					</s:a>
-					
-				</td>
-			</tr>
-		</c:forEach>
-	</table>
 	
-	<s:form method="post" action="insertArticle" theme="css_xhtml">
-		<s:textfield type="text" name="article.designation" label="designation" labelposition="left"/>
-		<s:textfield type="text" name="article.prixUnitaire" label="prixUnitaire" labelposition="left"/>
-		<s:textfield type="text" name="article.quantite" label="quantite" labelposition="left"/>
-		<s:select name="categ" list="listCateg" listValue="designation" listKey="code"></s:select>
-		<s:submit name="Valider" value="Inserer"/>
-	</s:form>
-	
+	<div class="tous">
+		<div class="dd">ddddd</div>
+		<div class="article">
+				<table>
+					<tr>
+						<td>Code</td>
+						<td>Designation</td>
+						<td>Prix Unitaire</td>
+						<td>Quantite</td>
+						<td>Categorie</td>
+						<td>Supprimer / Modifier</td>
+					</tr>
+					<c:forEach  items="${listArticles}" var="article">
+			   			<tr>
+			   				<td> ${article.code}</td>
+							<td> ${article.designation}</td>
+							<td> ${article.prixUnitaire}</td>
+							<td> ${article.quantite}</td>
+							<td> ${article.categorie.designation}</td>
+							<td> 
+								<s:a action="deleteArticle">
+								Supprimer<s:param name="codeArt">${article.code}</s:param>
+								</s:a>
+								<s:text name=" / "/>
+								<s:a action="updateArticlePage">
+								Modifier<s:param name="codeArt">${article.code}</s:param>
+								</s:a>
+								
+							</td>
+						</tr>
+					</c:forEach>
+				</table>
+				
+				<s:form cssClass="gg" method="post" action="insertArticle" theme="css_xhtml">
+					<s:textfield type="text" name="article.designation" label="designation" labelposition="left"/>
+					<s:textfield type="text" name="article.prixUnitaire" label="prixUnitaire" labelposition="left"/>
+					<s:textfield type="text" name="article.quantite" label="quantite" labelposition="left"/>
+					<s:select name="categ" list="listCateg" listValue="designation" listKey="code"></s:select>
+					<s:submit name="Valider" value="Inserer"/>
+				</s:form>
+			</div>
+	</div>
 </body>
 </html>
