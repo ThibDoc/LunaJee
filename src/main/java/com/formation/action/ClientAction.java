@@ -10,6 +10,7 @@ import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.daos.ClientDAO;
+import com.formation.entity.Adresse;
 import com.formation.entity.Client;
 import com.formation.service.ClientService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -24,7 +25,17 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	private static final long serialVersionUID = 1L;
 
 	List<Client> listClients;
+	Adresse adresse = new Adresse();
 	Client client = new Client();
+	
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 
 	@Autowired
 	private ClientService clientService;
@@ -43,10 +54,18 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 		this.listClients = listClients;
 	}
 
-	@Action("/createClient")
-	public String CreateClient() {
+	@Action("createClient")
+	public String createClient() throws Exception {
 		clientService.CreateClient(getModel());
 		return "create";
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	@Override

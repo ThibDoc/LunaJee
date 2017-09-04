@@ -33,13 +33,13 @@
 	</table>
 
 	<s:form cssClass="formulaire" action="createClient" method="post" theme="css_xhtml">
-		<s:textfield label="Nom" name="nom" required="true" labelposition="left"/>
-		<s:textfield label="Prenom" name="prenom" required="true" labelposition="left"/>
-		<s:textfield label="Date" name="date" labelposition="left" readonly="true" value=""/>
-		<s:textfield label="Rue" name="rue" required="true" labelposition="left"/>
-		<s:textfield label="Code postal" name="codePostal" required="true" labelposition="left"/>
-		<s:textfield label="Ville" name="ville" required="true" labelposition="left"/>
-		<s:radio label="Carte de fidélité" labelposition="left" id="radiobutton" name="myRadioButton" list="#{'1' : 'oui', '2' : 'non'}"/>
+		<s:textfield label="Nom" name="client.nom" labelposition="left"/>
+		<s:textfield label="Prenom" name="client.prenom" required="true" labelposition="left"/>
+		<s:textfield label="Date" name="client.date" labelposition="left" readonly="true" value=""/>
+		<s:textfield label="Rue" name="client.adresse.rue" required="true" labelposition="left"/>
+		<s:textfield label="Code postal" name="client.adresse.codePostal" required="true" labelposition="left"/>
+		<s:textfield label="Ville" name="client.adresse.ville" required="true" labelposition="left"/>
+		<s:radio label="Carte de fidélité" labelposition="left" id="radiobutton" name="client.carte_fidele" list="#{'1' : 'oui', '2' : 'non'}"/>
 		<s:submit label="Enregistrer" />
 	</s:form>
 </body>
