@@ -1,12 +1,24 @@
 package com.formation.test;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+public class CustomerAction extends ActionSupport
+implements ModelDriven{
 
-public class initia {
+//have to initialize it
+Customer customer = new Customer();
 
-	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context =new ClassPathXmlApplicationContext("application-Context.xml");
-		
-	}
+public String execute() throws Exception {
 
+	return SUCCESS;
+
+}
+
+public Object getModel() {
+
+	return customer;
+
+}
+public static void main(String[] args) {
+	ClassPathXmlApplicationContext context =new ClassPathXmlApplicationContext("application-Context.xml");
+	
+}
 }
