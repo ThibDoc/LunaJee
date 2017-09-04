@@ -2,47 +2,47 @@ package com.formation.service;
 
 import java.util.List;
 
-import com.formation.daos.ClientDAOImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.stereotype.Service;
+
+import com.formation.daos.ClientDAO;
+
 import com.formation.entity.Client;
 
+@Service("ClientService")
 public class ClientServiceImpl implements ClientService {
-	  
-    private ClientDAOImpl clientDAOImpl;
-
-    public ClientDAOImpl getInstance(){
-    	clientDAOImpl = new ClientDAOImpl();
-		return  clientDAOImpl;
-	}
+	@Autowired
+	private ClientDAO clientDAO;
 
 	@Override
 	public void CreateClient(Client client) {
 		// TODO Auto-generated method stub
-		getInstance().CreateClient(client);
+		clientDAO.CreateClient(client);
 	}
 
 	@Override
 	public Client getClient(int code) {
 		// TODO Auto-generated method stub
-		return getInstance().getClient(code);
+		return clientDAO.getClient(code);
 	}
 
 	@Override
 	public void updateClient(Client client) {
 		// TODO Auto-generated method stub
-		getInstance().updateClient(client);
+		clientDAO.updateClient(client);
 	}
 
 	@Override
 	public void DeleteClient(int code) {
 		// TODO Auto-generated method stub
-		getInstance().DeleteClient(code);
+		clientDAO.DeleteClient(code);
 	}
 
 	@Override
 	public List<Client> getAllClients() {
 		// TODO Auto-generated method stub
-		return getInstance().getAllClients();
+		return clientDAO.getAllClients();
 	}
 
-	
 }

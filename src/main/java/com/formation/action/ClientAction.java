@@ -11,26 +11,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.daos.ClientDAO;
 import com.formation.entity.Client;
+import com.formation.service.ClientService;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 
 @Action("/client")
 @ResultPath("/WEB-INF/pages")
-@Results({
-	@Result(name = "success", location = "client.jsp"),
-})
-public class ClientAction extends ActionSupport {
+@Results({ @Result(name = "success", location = "client.jsp"), @Result(name = "create", location = "client.jsp"),
+		@Result(name = "input", location = "client.jsp") })
+public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 
 	private static final long serialVersionUID = 1L;
 
 	List<Client> listClients;
+	Client client = new Client();
 
 	@Autowired
-	private ClientDAO clientDAO;
+	private ClientService clientService;
 
 	@Override
-	public String execute()throws Exception {
-		
-		listClients = clientDAO.getAllClients();
+	public String execute() throws Exception {
+		listClients = clientService.getAllClients();
 		return SUCCESS;
 	}
 
@@ -41,6 +42,17 @@ public class ClientAction extends ActionSupport {
 	public void setListClients(List<Client> listClients) {
 		this.listClients = listClients;
 	}
-	
-	
+
+	@Action("/createClient")
+	public String CreateClient() {
+		clientService.CreateClient(getModel());
+		return "create";
+	}
+
+	@Override
+	public Client getModel() {
+		// TODO Auto-generated method stub
+		return client;
+	}
+
 }

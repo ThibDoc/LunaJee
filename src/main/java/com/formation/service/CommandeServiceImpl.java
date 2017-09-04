@@ -2,47 +2,46 @@ package com.formation.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.formation.daos.CommandeDAO;
 import com.formation.daos.CommandeDAOImpl;
 import com.formation.entity.Commande;
 
+@Repository("CommandeService")
 public class CommandeServiceImpl implements CommandeService {
-	  
-    private CommandeDAOImpl commandeDAOImpl;
-
-    public CommandeDAOImpl getInstance(){
-    	commandeDAOImpl = new CommandeDAOImpl();
-		return  commandeDAOImpl;
-	}
+	@Autowired
+	private CommandeDAO commandeDAO;
 
 	@Override
 	public void CreateCommande(Commande commande) {
 		// TODO Auto-generated method stub
-		getInstance().CreateCommande(commande);
+		commandeDAO.CreateCommande(commande);
 	}
 
 	@Override
 	public Commande getCommande(int code) {
 		// TODO Auto-generated method stub
-		return getInstance().getCommande(code);
+		return commandeDAO.getCommande(code);
 	}
 
 	@Override
 	public void updateCommande(Commande commande) {
 		// TODO Auto-generated method stub
-		getInstance().updateCommande(commande);
+		commandeDAO.updateCommande(commande);
 	}
 
 	@Override
 	public void DeleteCommande(int code) {
 		// TODO Auto-generated method stub
-		getInstance().DeleteCommande(code);
+		commandeDAO.DeleteCommande(code);
 	}
 
 	@Override
 	public List<Commande> getAllCommandes() {
 		// TODO Auto-generated method stub
-		return getInstance().getAllCommandes();
+		return commandeDAO.getAllCommandes();
 	}
 
-	
 }
