@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -50,8 +51,8 @@ public class ArticleDAOImpl implements ArticleDAO{
 
 	@Override
 	public Article getArticleByName(String name) {
-		Object obj =  this.sessionFactory.getCurrentSession().createNativeQuery("Select * from article where designation=\""+name+"\"").getSingleResult();
-		Article article = (Article) obj;
+		NativeQuery<Article> nativ=  this.sessionFactory.getCurrentSession().createNativeQuery("Select * from article where designation='"+name+"'",Article.class);
+		Article article =nativ.getSingleResult();
 		return article;
 	}
 

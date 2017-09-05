@@ -23,6 +23,7 @@ import com.opensymphony.xwork2.ModelDriven;
 	@Result(name = "update", location = "article.jsp"),
 	@Result(name = "updatePage", location = "updateArticle.jsp"),
 	@Result(name = "createPage", location = "createArticle.jsp"),
+	@Result(name = "search", location = "article.jsp"),
 })
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
 
@@ -94,7 +95,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		load();
 		listArticles.clear();
 		listArticles.add(articleDAO.getArticleByName(name));
-		return "createPage";
+		return "search";
 	}
 	
 	

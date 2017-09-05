@@ -52,9 +52,7 @@ public class Article implements Serializable {
 	public Article() {
 	}
 
-	/*
-	 * Accesseurs
-	 */
+
 	public int getCode() {
 		return code;
 	}
