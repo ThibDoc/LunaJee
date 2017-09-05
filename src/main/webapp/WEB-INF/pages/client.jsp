@@ -84,6 +84,7 @@
 				</table>
 			</div>
 		</div>
+	</div>	
 
 
 		<s:form cssClass="formulaire" action="createClient" method="post"
