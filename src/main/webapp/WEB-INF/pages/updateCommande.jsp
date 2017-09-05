@@ -30,7 +30,7 @@
 			</s:form>
 		</div>
 		<div class="article">
-			<div class="panelgauche">
+			<div class="updategauche">
 				<div class="search">
 					<s:form cssClass="searchc" method="post" action="searchArticle" theme="css_xhtml">
 						<s:textfield cssClass="searchField" type="text" name="name" placeholder="Rechercher"/>
@@ -40,43 +40,24 @@
 				
 				<div class="search">
 					<s:a cssClass="textAdd" action="createArticlePage">
-						Ajouter une commande
+						Ajouter un article
 					</s:a>
 				</div>
 			
 			
 			</div>
-			<div class="fff">
-				<table>
-					<tr class="entete">
-						<td class="lefttab">Code</td>
-						<td>Date</td>
-						<td>Nom client</td>
-						<td>Mode de réglement</td>
-						<td>Supprimer</td>
-						<td class="righttab">Modifier</td>
-					</tr>
-					<c:forEach  items="${listCommandes}" var="commande">
-			   			<tr>
-			   				<td> ${commande.code}</td>
-							<td> ${commande.date}</td>
-							<td> ${commande.client.nom}</td>
-							<td> ${commande.modeReglement.type}</td>
-							<td> 
-								<s:a action="deleteCommande">
-									<img alt="" src="${pageContext.request.contextPath}/css/img/Garbage-Open-48.png" width="30px"><s:param name="codeCom">${commande.code}</s:param>
-								</s:a>
-							</td>
-							<td> 
-								<s:a action="updateCommandePage">
-									<img alt="" src="${pageContext.request.contextPath}/css/img/Data-Edit-48.png" width="30px"><s:param name="codeCom">${commande.code}</s:param>
-								</s:a>
-							</td>
-						</tr>
-					</c:forEach>
-				</table>
-				</div>
+			<div class="updatecenter">
+				<fieldset><legend>Commande</legend>
+					<s:form method="post" action="updateCommande" theme="css_xhtml">
+						<s:textfield type="date" name="commandeUpdate.date" label="Date" labelposition="left"/>
+						<s:textfield cssClass="textUpdate" type="hidden" name="client"><s:param name="client">${client}</s:param></s:textfield>
+						<s:textfield cssClass="textUpdate" type="hidden" name="modeReglement"><s:param name="modeReglement">${modeReglement}</s:param></s:textfield>
+						<s:textfield cssClass="textUpdate" type="hidden" name="codeCom"><s:param name="codeCom">${codeCom}</s:param></s:textfield>
+						<s:submit cssClass="textUpdate" name="Valider" value="Modifier"/>
+					</s:form>
+				</fieldset>
 			</div>
+		</div>
 	</div>
 </body>
 </html>

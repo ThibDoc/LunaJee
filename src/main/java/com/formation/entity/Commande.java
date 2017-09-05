@@ -47,7 +47,7 @@ public class Commande implements Serializable {
 	@ManyToOne
 	private Client client;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "mode_reglement_code")
 	private ModeReglements modeReglement;
 
@@ -78,9 +78,7 @@ public class Commande implements Serializable {
 
 	
 
-	/*
-	 * Accesseurs
-	 */
+
 	public int getCode() {
 		return code;
 	}
@@ -101,20 +99,19 @@ public class Commande implements Serializable {
 				.sum();
 	}
 
-	public ModeReglements getReglement() {
+	
+	
+	public ModeReglements getModeReglement() {
 		return modeReglement;
 	}
 
-
+	public void setModeReglement(ModeReglements modeReglement) {
+		this.modeReglement = modeReglement;
+	}
 
 	public void setClient(Client client) {
 		this.client = client;
 	}
-
-	public void setReglement(ModeReglements leReglement) {
-		this.modeReglement = leReglement;
-	}
-
 
 	public void setDate(Date date) {
 		this.date = date;
@@ -131,6 +128,14 @@ public class Commande implements Serializable {
 	public void ajouter(Ligne uneLigne) {
 		uneLigne.setCommande(this);
 		lignes.add(uneLigne);
+	}
+
+	public void setCode(int code) {
+		this.code = code;
+	}
+
+	public void setLignes(List<Ligne> lignes) {
+		this.lignes = lignes;
 	}
 
 
