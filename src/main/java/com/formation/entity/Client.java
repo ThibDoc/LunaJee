@@ -56,10 +56,7 @@ public class Client implements Serializable {
 		return carte_fidele;
 	}
 
-	// Setters
-	public void setCode(int code) {
-		this.code = code;
-	}
+
 
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -87,9 +84,6 @@ public class Client implements Serializable {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.carte_fidele = carte_fidele;
-//		Instant creation;
-//		setDateCreation(creation);
-//		LocalDate.of(date.getYear() +1900, date.getMonth(), date.getDate());
 		this.date = date;
 		this.adresse = adresse;
 	}

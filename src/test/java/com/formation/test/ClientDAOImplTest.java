@@ -47,7 +47,7 @@ public class ClientDAOImplTest {
 	}
 	
 	@Test
-	public void testGetClient() {
+	public void dtestGetClient() {
 		Client client = clientDAO.getClient(1);
 		assertEquals(client.getCode(), 1);
 	}
@@ -64,7 +64,7 @@ public class ClientDAOImplTest {
 
 
 	@Test
-	public void dtestDeleteClient() {
+	public void etestDeleteClient() {
 		clientDAO.DeleteClient(clientDAO.getClient(1).getCode());
 		assertEquals(clientDAO.getClient(1), null);
 	}

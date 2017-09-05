@@ -38,7 +38,16 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 	Client client = new Client();
 	private int codeCli;
 	private Client clientUpdate;
+	private boolean carte_fidelite;
 	
+
+	public boolean isCarte_fidelite() {
+		return carte_fidelite;
+	}
+
+	public void setCarte_fidelite(boolean carte_fidelite) {
+		this.carte_fidelite = carte_fidelite;
+	}
 
 	public Adresse getAdresse() {
 		return adresse;
@@ -57,19 +66,14 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 		load();
 		return SUCCESS;
 	}
-	
-	public String intercept(ActionInvocation invocation) throws Exception {
-        invocation.addPreResultListener(new PreResultListener() {
- 
-          public void beforeResult(ActionInvocation invocation, String resultCode) {
-                if(resultCode.equals(com.opensymphony.xwork2.ActionSupport.INPUT)){
-                	load();
-                }
-            }
-          });
- 
-        return invocation.invoke();
-    }
+
+	public int getCodeCli() {
+		return codeCli;
+	}
+
+	public void setCodeCli(int codeCli) {
+		this.codeCli = codeCli;
+	}
 
 	public List<Client> getListClients() {
 		return listClients;
@@ -82,15 +86,26 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 	@Action("createClient")
 	public String createClient() throws Exception {
 		load();
+		getModel().setCarteFidele(carte_fidelite);
 		getModel().setDate(Calendar.getInstance().getTime());
 		clientService.CreateClient(getModel());
 		load();
 		return "create";
 	}
 	
+	public Client getClientUpdate() {
+		return clientUpdate;
+	}
+
+	public void setClientUpdate(Client clientUpdate) {
+		this.clientUpdate = clientUpdate;
+	}
+
 	@Action("deleteClient")
 	public String deleteClient() throws Exception {
+		System.out.println(codeCli);
 		clientService.DeleteClient(codeCli);
+		
 		load();
 		return "delete";
 	}
@@ -99,15 +114,12 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 	public String updateClientPage()throws Exception {
 		load();
 		clientUpdate = clientService.getClient(codeCli);
-		clientUpdate.setCode(codeCli);
 		return "updatePage";
 	}
 	
 	@Action("updateClient")
 	public String updateClient()throws Exception {
-		load();
 		clientService.updateClient(clientUpdate);
-		load();
 		return "update";
 	}
 
