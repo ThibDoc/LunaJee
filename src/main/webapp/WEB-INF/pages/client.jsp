@@ -20,26 +20,44 @@
 			<td>Nom</td>
 			<td>Prenom</td>
 			<td>Date</td>
+			<td>Ville</td>
+			<td>Supprimer/Modifier</td>
 		</tr>
 		<c:forEach items="${listClients}" var="client">
 			<tr>
 				<td>${client.code}</td>
 				<td>${client.nom}</td>
 				<td>${client.prenom}</td>
-				<td><fmt:formatDate value="${client.date}" pattern="yyyy-MM-dd" />
-					<c:out value="${parsedDate}" /></td>
+				<td>
+					<fmt:formatDate value="${client.date}" pattern="yyyy-MM-dd" />
+					<c:out value="${parsedDate}" />
+				</td>
+				<td>${client.adresse.ville}</td>
+				<td>
+					<s:a action="deleteClient">
+								Supprimer<s:param name="codeCli">${client.code}</s:param>
+					</s:a> <s:text name=" / " /> <s:a action="updateClientPage">
+								Modifier<s:param name="codeCli">${client.code}</s:param>
+					</s:a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
 
-	<s:form cssClass="formulaire" action="createClient" method="post" theme="css_xhtml">
-		<s:textfield label="Nom" name="client.nom" labelposition="left"/>
-		<s:textfield label="Prenom" name="client.prenom" required="true" labelposition="left"/>
-		<s:textfield label="Date" name="client.date" labelposition="left" readonly="true" value=""/>
-		<s:textfield label="Rue" name="client.adresse.rue" required="true" labelposition="left"/>
-		<s:textfield label="Code postal" name="client.adresse.codePostal" required="true" labelposition="left"/>
-		<s:textfield label="Ville" name="client.adresse.ville" required="true" labelposition="left"/>
-		<s:radio label="Carte de fidélité" labelposition="left" id="radiobutton" name="client.carte_fidele" list="#{'1' : 'oui', '2' : 'non'}"/>
+	<s:form cssClass="formulaire" action="createClient" method="post"
+		theme="css_xhtml">
+		<s:textfield label="Nom" required="true" name="client.nom" labelposition="left" />
+		<s:textfield label="Prenom" name="client.prenom" required="true"
+			labelposition="left" />
+		<s:textfield label="Rue" name="client.adresse.rue" required="true"
+			labelposition="left" />
+		<s:textfield label="Code postal" name="client.adresse.codePostal"
+			required="true" labelposition="left" />
+		<s:textfield label="Ville" name="client.adresse.ville" required="true"
+			labelposition="left" />
+		<s:radio label="Carte de fidélité" labelposition="left"
+			id="radiobutton" name="client.carte_fidele"
+			list="#{true : 'oui', false : 'non'}" value="false"/>
 		<s:submit label="Enregistrer" />
 	</s:form>
 </body>
