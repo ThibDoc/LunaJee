@@ -38,6 +38,10 @@ public class Client implements Serializable {
 	@OneToOne(cascade=CascadeType.ALL)
 	private Adresse adresse;
 
+	public void setCode(int code) {
+		this.code = code;
+	}
+
 	// Getters de base
 	// ---------------
 	public int getCode() {

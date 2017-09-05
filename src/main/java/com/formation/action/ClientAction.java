@@ -114,12 +114,16 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 	public String updateClientPage()throws Exception {
 		load();
 		clientUpdate = clientService.getClient(codeCli);
+		clientUpdate.setCode(codeCli);
+		
 		return "updatePage";
 	}
 	
 	@Action("updateClient")
 	public String updateClient()throws Exception {
+		clientUpdate.setCode(codeCli);
 		clientService.updateClient(clientUpdate);
+		load();
 		return "update";
 	}
 
