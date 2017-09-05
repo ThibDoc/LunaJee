@@ -15,8 +15,11 @@ import com.formation.entity.Adresse;
 import com.formation.entity.Article;
 import com.formation.entity.Client;
 import com.formation.service.ClientService;
+import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.Preparable;
+import com.opensymphony.xwork2.interceptor.PreResultListener;
 
 @Action("/client")
 @ResultPath("/WEB-INF/pages")
@@ -26,7 +29,7 @@ import com.opensymphony.xwork2.ModelDriven;
 	@Result(name = "delete", location = "client.jsp"),
 	@Result(name = "update", location = "client.jsp"),
 	@Result(name = "updatePage", location = "updateClient.jsp")})
-public class ClientAction extends ActionSupport implements ModelDriven<Client> {
+public class ClientAction extends ActionSupport implements ModelDriven<Client>,Preparable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -55,6 +58,18 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 		return SUCCESS;
 	}
 	
+	public String intercept(ActionInvocation invocation) throws Exception {
+        invocation.addPreResultListener(new PreResultListener() {
+ 
+          public void beforeResult(ActionInvocation invocation, String resultCode) {
+                if(resultCode.equals(com.opensymphony.xwork2.ActionSupport.INPUT)){
+                	load();
+                }
+            }
+          });
+ 
+        return invocation.invoke();
+    }
 
 	public List<Client> getListClients() {
 		return listClients;
@@ -112,6 +127,11 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	
 	public void load() {
 		listClients = clientService.getAllClients();
+	}
+
+	@Override
+	public void prepare() throws Exception {
+		load();
 	}
 
 }
