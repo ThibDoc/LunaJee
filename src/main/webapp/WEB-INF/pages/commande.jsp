@@ -32,8 +32,8 @@
 		<div class="article">
 			<div class="panelgauche">
 				<div class="search">
-					<s:form cssClass="searchc" method="post" action="searchArticle" theme="css_xhtml">
-						<s:textfield cssClass="searchField" type="text" name="name" placeholder="Rechercher"/>
+					<s:form cssClass="searchc" method="post" action="searchCommande" theme="css_xhtml">
+						<s:textfield cssClass="searchField" type="text" name="idCli" placeholder="Rechercher"/>
 						<s:submit cssClass="searchButon" name="Chercher" value=" "/>
 					</s:form>
 				</div>
@@ -69,7 +69,10 @@
 							</td>
 							<td> 
 								<s:a action="updateCommandePage">
-									<img alt="" src="${pageContext.request.contextPath}/css/img/Data-Edit-48.png" width="30px"><s:param name="codeCom">${commande.code}</s:param>
+									<img alt="" src="${pageContext.request.contextPath}/css/img/Data-Edit-48.png" width="30px">
+									<s:param name="codeCom">${commande.code}</s:param>
+									<s:param name="client">${client}</s:param>
+									<s:param name="modeReglement">${modeReglement}</s:param>
 								</s:a>
 							</td>
 						</tr>

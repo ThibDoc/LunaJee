@@ -10,6 +10,8 @@ public interface CommandeDAO {
 	
 	public Commande getCommande(int code);
 	
+	public List<Commande>  getCommandeByCli(int code);
+	
 	public void updateCommande(Commande commande);
 	
 	public void DeleteCommande(int code);

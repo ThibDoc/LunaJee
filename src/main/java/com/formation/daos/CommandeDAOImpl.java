@@ -5,9 +5,11 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.formation.entity.Article;
 import com.formation.entity.Commande;
 
 @Repository("CommandeDAO")
@@ -46,6 +48,13 @@ public class CommandeDAOImpl implements CommandeDAO{
 	@Override
 	public List<Commande> getAllCommandes() {
 		return this.sessionFactory.getCurrentSession().createQuery("from Commande").list();
+	}
+
+	@Override
+	public List<Commande> getCommandeByCli(int id) {
+		NativeQuery<Commande> nativ=  this.sessionFactory.getCurrentSession().createNativeQuery("Select * from commande where client_code="+id,Commande.class);
+		List<Commande> commandes =nativ.getResultList();
+		return commandes;
 	}
 
 }

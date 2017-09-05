@@ -26,6 +26,7 @@ import com.opensymphony.xwork2.ModelDriven;
 	@Result(name = "delete", location = "commande.jsp"),
 	@Result(name = "update", location = "commande.jsp"),
 	@Result(name = "updatePage", location = "updateCommande.jsp"),
+	@Result(name = "search", location = "commande.jsp"),
 })
 public class CommandeAction extends ActionSupport  implements ModelDriven<Commande>{
 
@@ -33,9 +34,9 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	private int codeCom;
 	private Commande commandeUpdate;
 	private Client client;
-	
+	private int idCli;
 	Commande commande = new Commande();
-	ModeReglements modeReglement = new ModeReglements();
+	ModeReglements modeReglement;
 	
 	@Autowired
 	private CommandeDAO commandeDAO;
@@ -68,18 +69,24 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 		commandeUpdate.setCode(codeCom);
 		client = commandeUpdate.getClient();
 		modeReglement = commandeUpdate.getModeReglement();
+		System.out.println(modeReglement.getCode());
 		return "updatePage";
 	}
 	
 	@Action("updateCommande")
 	public String updateCommande()throws Exception {
-		System.out.println(commandeUpdate);
 		commandeUpdate.setCode(codeCom);
-		commandeUpdate.setClient(client);
-		commandeUpdate.setModeReglement(modeReglement);
 		commandeDAO.updateCommande(commandeUpdate);
 		load();
 		return "update";
+	}
+	
+	@Action("searchCommande")
+	public String searchCommande()throws Exception {
+		load();
+		listCommandes.clear();
+		listCommandes = commandeDAO.getCommandeByCli(idCli);
+		return "search";
 	}
 	
 	public List<Commande> getListCommandes() {
@@ -147,6 +154,14 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+	public int getIdCli() {
+		return idCli;
+	}
+
+	public void setIdCli(int idCli) {
+		this.idCli = idCli;
 	}
 	
 	

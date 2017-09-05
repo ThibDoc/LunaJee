@@ -24,37 +24,30 @@ public class ModeReglements implements Serializable {
     @Transient
     private transient boolean ignoré;
     
-    /*
-     * Constructeur 1.
-     * Utilisé par JPA.
-     */
     public ModeReglements(){
-    	super();
+    	
     }
     
-    /*
-     * Constructeur 2
-     * Pour la gestion des commandes
-     */
     public ModeReglements(String type){
     	this();
     	this.type = type;
     }
 
-    /*
-     * Accesseurs
-     */
+
     public int getCode() {
-        return code;
-    }
-    public String getType() {
+		return code;
+	}
+
+	public String getType() {
         return type;
     }
     
-    /*
-     * Mutateur
-     */
-    public void setType(String type) {
+
+    public void setCode(int code) {
+		this.code = code;
+	}
+
+	public void setType(String type) {
         this.type = type;
     }
 

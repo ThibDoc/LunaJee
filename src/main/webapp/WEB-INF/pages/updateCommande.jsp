@@ -50,8 +50,9 @@
 				<fieldset><legend>Commande</legend>
 					<s:form method="post" action="updateCommande" theme="css_xhtml">
 						<s:textfield type="date" name="commandeUpdate.date" label="Date" labelposition="left"/>
-						<s:textfield cssClass="textUpdate" type="hidden" name="client"><s:param name="client">${client}</s:param></s:textfield>
-						<s:textfield cssClass="textUpdate" type="hidden" name="modeReglement"><s:param name="modeReglement">${modeReglement}</s:param></s:textfield>
+						<s:textfield cssClass="textUpdate" type="hidden" name="commandeUpdate.client.code"><s:param name="commandeUpdate.client.code">${client.code}</s:param></s:textfield>
+						<s:textfield cssClass="textUpdate" type="hidden" name="commandeUpdate.modeReglement.code"><s:param name="commandeUpdate.modeReglement.code">${modeReglement.code}</s:param></s:textfield>
+						<s:textfield cssClass="textUpdate" type="hidden" name="commandeUpdate.modeReglement.type"><s:param name="commandeUpdate.modeReglement.type">${modeReglement.type}</s:param></s:textfield>
 						<s:textfield cssClass="textUpdate" type="hidden" name="codeCom"><s:param name="codeCom">${codeCom}</s:param></s:textfield>
 						<s:submit cssClass="textUpdate" name="Valider" value="Modifier"/>
 					</s:form>
