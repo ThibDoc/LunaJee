@@ -1,5 +1,9 @@
 @CHARSET "ISO-8859-1";
 
+html{
+	font-family: 'Open Sans', sans-serif !important;
+}
+
 body{
 	background: url(../css/img/fond.jpg) no-repeat center fixed;
 	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
@@ -38,11 +42,10 @@ div.dd{
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	width: 100%;
-	height: 30px;
+	height: 40px;
 	background-color: #51C859;
 	display: flex;
 	align-items: center;
-
 }
 
 .boutton{
@@ -56,9 +59,7 @@ div.dd{
 	font-weight: bold;
 	padding-left: 10px;
 	padding-right: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-size: 15px;
+	font-size: 18px;
 }
 
 .text:hover{
