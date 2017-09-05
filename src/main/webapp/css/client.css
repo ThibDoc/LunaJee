@@ -72,6 +72,12 @@ div.dd{
 	font-weight: bold;
 }
 
+fieldset {
+	border-color: 50ADEB;
+	border-radius: 10px;
+	padding: 10px;
+}
+
 .lefttab{
 		border-top-left-radius: 10px;
 }
@@ -96,6 +102,10 @@ div.dd{
 
 .searchc{
 	display: flex;
+}
+
+.updategauche{
+	margin-top: -120px;
 }
 
 .searchField{
@@ -129,4 +139,23 @@ div.dd{
 	height: 300px;
 	overflow-x: hidden;
 	overflow-y: auto;
+}
+
+.ligne .wwgrp{
+	display:inline-block;
+}
+
+.errorMessage{
+	color:red;
+	font-size: 14px;
+}
+
+.updatecenter .wwgrp{
+	margin-right:10px;
+	margin-top:10px;
+	vertical-align: top;
+}
+
+.updatecenter .formButton{
+	margin-top: 10px;
 }

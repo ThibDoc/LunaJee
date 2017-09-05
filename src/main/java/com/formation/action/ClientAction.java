@@ -25,9 +25,10 @@ import com.opensymphony.xwork2.interceptor.PreResultListener;
 @ResultPath("/WEB-INF/pages")
 @Results({ @Result(name = "success", location = "client.jsp"),
 	@Result(name = "create", location = "client.jsp"),
-	@Result(name = "input", location = "client.jsp"),
+	@Result(name = "input", location = "createClient.jsp"),
 	@Result(name = "delete", location = "client.jsp"),
 	@Result(name = "update", location = "client.jsp"),
+	@Result(name = "createPage", location = "createClient.jsp"),
 	@Result(name = "updatePage", location = "updateClient.jsp")})
 public class ClientAction extends ActionSupport implements ModelDriven<Client>,Preparable {
 
@@ -126,6 +127,20 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 		load();
 		return "update";
 	}
+	
+	@Action("createClientPage")
+	public String createPage()throws Exception {
+		load();
+		return "createPage";
+	}
+	
+//	@Action("searchArticle")
+//	public String searchArticle()throws Exception {
+//		load();
+//		listClients.clear();
+//		listClients.add(clientService.getArticleByName());
+//		return "search";
+//	}
 
 	public Client getClient() {
 		return client;
