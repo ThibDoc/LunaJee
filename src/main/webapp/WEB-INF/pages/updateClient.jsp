@@ -24,8 +24,8 @@
 		<s:textfield label="Ville" name="clientUpdate.adresse.ville" required="true"
 			labelposition="left" />
 		<s:radio label="Carte de fidélité" labelposition="left"
-			id="radiobutton" name="clientUpdate.carte_fidele"
-			list="#{'1' : 'oui', '2' : 'non'}" />
+			id="radiobutton" name="carte_fidelite"
+			list="#{'true' : 'oui', 'false' : 'non'}" value="false"/>
 		<s:submit label="Enregistrer" />
 	</s:form>
 	

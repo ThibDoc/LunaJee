@@ -38,7 +38,7 @@ public class ClientDAOImpl implements ClientDAO{
 
 	@Override
 	public void DeleteClient(int code) {
-		Client client = (Client) this.sessionFactory.getCurrentSession().load(Client.class, code);
+		Client client = (Client) this.sessionFactory.getCurrentSession().find(Client.class, code);
 		if(null != client) this.sessionFactory.getCurrentSession().delete(client);
 	}
 
