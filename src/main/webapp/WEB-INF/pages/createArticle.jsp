@@ -32,53 +32,30 @@
 		<div class="article">
 			<div class="panelgauche">
 				<div class="search">
-					<s:form cssClass="searchc" method="post" action="searchArticle" theme="css_xhtml">
-						<s:textfield cssClass="searchField" type="text" name="name" placeholder="Rechercher"/>
+					<s:form cssClass="searchc" method="post" action="article" theme="css_xhtml">
+						<s:textfield cssClass="searchField" type="text" name="search" placeholder="Rechercher"/>
 						<s:submit cssClass="searchButon" name="Chercher" value=" "/>
 					</s:form>
 				</div>
 				
 				<div class="search">
-					<s:a cssClass="textAdd" action="createArticlePage">
+					<s:a cssClass="textAdd" action="article">
 						Ajouter un article
 					</s:a>
-				</div>
-			
-			
+			</div>
+				
 			</div>
 			<div class="fff">
-				<table>
-					<tr class="entete">
-						<td class="lefttab">Code</td>
-						<td>Designation</td>
-						<td>Prix Unitaire</td>
-						<td>Quantite</td>
-						<td>Categorie</td>
-						<td>Supprimer</td>
-						<td class="righttab">Modifier</td>
-					</tr>
-					<c:forEach  items="${listArticles}" var="article">
-			   			<tr>
-			   				<td> ${article.code}</td>
-							<td> ${article.designation}</td>
-							<td> ${article.prixUnitaire}</td>
-							<td> ${article.quantite}</td>
-							<td> ${article.categorie.designation}</td>
-							<td> 
-								<s:a action="deleteArticle">
-									<img alt="" src="${pageContext.request.contextPath}/css/img/Garbage-Open-48.png" width="30px"><s:param name="codeArt">${article.code}</s:param>
-								</s:a>
-							</td>
-							<td> 
-								<s:a action="updateArticlePage">
-									<img alt="" src="${pageContext.request.contextPath}/css/img/Data-Edit-48.png" width="30px"><s:param name="codeArt">${article.code}</s:param>
-								</s:a>
-							</td>
-						</tr>
-					</c:forEach>
-				</table>
-				</div>
+				<s:form cssClass="gg" method="post" action="insertArticle" theme="css_xhtml">
+					<s:textfield type="text" name="article.designation" label="designation" labelposition="left"/>
+					<s:textfield type="text" name="article.prixUnitaire" label="prixUnitaire" labelposition="left"/>
+					<s:textfield type="text" name="article.quantite" label="quantite" labelposition="left"/>
+					<s:select name="categ" list="listCateg" listValue="designation" listKey="code"></s:select>
+					<s:submit name="Valider" value="Inserer"/>
+			</s:form>
 			</div>
+		</div>
+			
 	</div>
 </body>
 </html>

@@ -22,6 +22,7 @@ import com.opensymphony.xwork2.ModelDriven;
 	@Result(name = "delete", location = "article.jsp"),
 	@Result(name = "update", location = "article.jsp"),
 	@Result(name = "updatePage", location = "updateArticle.jsp"),
+	@Result(name = "createPage", location = "createArticle.jsp"),
 })
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
 
@@ -30,6 +31,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	private Article article = new Article();
 	private int categ;
 	private int codeArt;
+	private String name;
 	private Article articleUpdate;
 
 	@Autowired
@@ -68,16 +70,31 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		load();
 		articleUpdate = articleDAO.getArticle(codeArt);
 		articleUpdate.setCode(codeArt);
+		
 		return "updatePage";
 	}
 	
 	@Action("updateArticle")
 	public String updateArticle()throws Exception {
-		load();
 		articleUpdate.setReference(categorieDAO.getCategorie(categ));
+		articleUpdate.setCode(codeArt);
 		articleDAO.updateArticle(articleUpdate);
 		load();
 		return "update";
+	}
+	
+	@Action("createArticlePage")
+	public String createPage()throws Exception {
+		load();
+		return "createPage";
+	}
+	
+	@Action("searchArticle")
+	public String searchArticle()throws Exception {
+		load();
+		listArticles.clear();
+		listArticles.add(articleDAO.getArticleByName(name));
+		return "createPage";
 	}
 	
 	
@@ -142,4 +159,14 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		listCateg = categorieDAO.getAllCategories();
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
+	
 }

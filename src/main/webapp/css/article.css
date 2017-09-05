@@ -8,13 +8,18 @@ body{
 }
 
 table, tr, td{
-	border: 1px solid black;
+	  border-collapse: collapse;
+	  padding: 5px 2px 5px 10px;
+	  text-align: center;
 }
 
+table{
+	background-color: #F2F2F2;
+}
 .tous{
 	width:auto; height:auto; float: none; 
 	margin: auto;
-	margin-top: 250px;
+	margin-top: 200px;
 	background-color: white;
 	display: flex;
 	align-items: center;
@@ -25,6 +30,8 @@ table, tr, td{
 
 .article{
 	padding: 20px;
+	 display: flex;
+	align-items: center;
 }
 
 div.dd{
@@ -33,4 +40,93 @@ div.dd{
 	width: 100%;
 	height: 30px;
 	background-color: #51C859;
+	display: flex;
+	align-items: center;
+
+}
+
+.boutton{
+	padding-left: 20px;
+}
+
+.text{
+	color: white;
+	background-color: #51C859;
+	border: none;
+	font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 15px;
+}
+
+.text:hover{
+	cursor:  pointer;
+	background-color: #45E24F;
+}
+
+.entete{
+	background-color: #51C859;
+	border: none;
+	font-weight: bold;
+}
+
+.lefttab{
+		border-top-left-radius: 10px;
+}
+
+.righttab{
+		border-top-right-radius: 10px;
+}
+
+.panelgauche{
+	margin-top: -150px;
+}
+
+.search{
+	width: 200px;
+	height: 30px;
+	background-color: #51C859;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	display: flex;
+}
+
+.searchc{
+	display: flex;
+}
+
+.searchField{
+	margin-top: 6px;
+	margin-left: 15px;
+	width: 120px;
+	background-color: #5CFE3B;
+	border: none;
+}
+
+.searchButon{
+	border: none;
+	margin-top: 6px;
+	margin-left: 4px;
+	width: 40px;
+	background-image: url(../css/img/Search-32.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20px;
+}
+
+.textAdd{
+	display: flex;
+	align-items: center;
+	color: white;
+	margin-left: 10px;
+	text-decoration: none;
+}
+
+.fff{
+	height: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }

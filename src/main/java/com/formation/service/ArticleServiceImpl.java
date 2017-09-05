@@ -43,4 +43,10 @@ public class ArticleServiceImpl implements ArticleService {
 		return articleDAO.getAllArticles();
 	}
 
+	@Override
+	public Article getArticleByName(String name) {
+		// TODO Auto-generated method stub
+		return articleDAO.getArticleByName(name);
+	}
+
 }

@@ -48,4 +48,11 @@ public class ArticleDAOImpl implements ArticleDAO{
 		return this.sessionFactory.getCurrentSession().createQuery("from Article").list();
 	}
 
+	@Override
+	public Article getArticleByName(String name) {
+		Object obj =  this.sessionFactory.getCurrentSession().createNativeQuery("Select * from article where designation=\""+name+"\"").getSingleResult();
+		Article article = (Article) obj;
+		return article;
+	}
+
 }

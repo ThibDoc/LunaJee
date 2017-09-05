@@ -15,6 +15,7 @@
 		<s:textfield type="text" name="articleUpdate.designation" label="designation" labelposition="left"/>
 		<s:textfield type="text" name="articleUpdate.prixUnitaire" label="prixUnitaire" labelposition="left"/>
 		<s:textfield type="text" name="articleUpdate.quantite" label="quantite" labelposition="left"/>
+		<s:textfield type="hidden" name="codeArt"><s:param name="codeArt">${codeArt}</s:param></s:textfield>
 		<s:select name="categ" list="listCateg" listValue="designation" listKey="code"></s:select>
 		<s:submit name="Valider" value="Inserer"/>
 	</s:form>
