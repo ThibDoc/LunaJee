@@ -7,6 +7,7 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
 import org.apache.struts2.convention.annotation.Results;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.daos.ClientDAO;
@@ -21,7 +22,7 @@ import com.opensymphony.xwork2.ModelDriven;
 @ResultPath("/WEB-INF/pages")
 @Results({ @Result(name = "success", location = "client.jsp"),
 	@Result(name = "create", location = "client.jsp"),
-	@Result(name = "input",  location = "client.jsp"),
+	@Result(name = "input", location = "client.jsp"),
 	@Result(name = "delete", location = "client.jsp"),
 	@Result(name = "update", location = "client.jsp"),
 	@Result(name = "updatePage", location = "updateClient.jsp")})
@@ -66,7 +67,6 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	@Action("createClient")
 	public String createClient() throws Exception {
 		load();
-		System.out.println(getModel().isCarteFidele());
 		getModel().setDate(Calendar.getInstance().getTime());
 		clientService.CreateClient(getModel());
 		load();
@@ -113,6 +113,5 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	public void load() {
 		listClients = clientService.getAllClients();
 	}
-	
 
 }
