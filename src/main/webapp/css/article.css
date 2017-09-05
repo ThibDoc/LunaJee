@@ -127,6 +127,26 @@ div.dd{
 
 .fff{
 	height: 300px;
-	overflow-x: hidden;
+	overflow-x: auto;
 	overflow-y: auto;
+}
+
+.updatecenter{
+	width :300px;
+	height: 200px;
+	text-align: center;
+}
+
+.updategauche{
+	margin-top: -100px;
+}
+
+.textUpdate{
+	margin-top: 10px;
+}
+
+fieldset {
+	border-color: #51C859;
+	border-radius: 10px;
+	padding: 10px;
 }

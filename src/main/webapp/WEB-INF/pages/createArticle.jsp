@@ -30,7 +30,7 @@
 			</s:form>
 		</div>
 		<div class="article">
-			<div class="panelgauche">
+			<div class="updategauche">
 				<div class="search">
 					<s:form cssClass="searchc" method="post" action="article" theme="css_xhtml">
 						<s:textfield cssClass="searchField" type="text" name="search" placeholder="Rechercher"/>
@@ -45,14 +45,16 @@
 			</div>
 				
 			</div>
-			<div class="fff">
-				<s:form cssClass="gg" method="post" action="insertArticle" theme="css_xhtml">
-					<s:textfield type="text" name="article.designation" label="designation" labelposition="left"/>
-					<s:textfield type="text" name="article.prixUnitaire" label="prixUnitaire" labelposition="left"/>
-					<s:textfield type="text" name="article.quantite" label="quantite" labelposition="left"/>
-					<s:select name="categ" list="listCateg" listValue="designation" listKey="code"></s:select>
-					<s:submit name="Valider" value="Inserer"/>
-			</s:form>
+			<div class="updatecenter">
+				<fieldset><legend>Création</legend>
+					<s:form cssClass="gg" method="post" action="insertArticle" theme="css_xhtml">
+						<s:textfield type="text" name="article.designation" label="designation" labelposition="left"/>
+						<s:textfield cssClass="textUpdate" type="text" name="article.prixUnitaire" label="prixUnitaire" labelposition="left"/>
+						<s:textfield cssClass="textUpdate" type="text" name="article.quantite" label="quantite" labelposition="left"/>
+						<s:select cssClass="textUpdate" name="categ" list="listCateg" listValue="designation" listKey="code"></s:select>
+						<s:submit cssClass="textUpdate" name="Valider" value="Inserer"/>
+					</s:form>
+				</fieldset>
 			</div>
 		</div>
 			

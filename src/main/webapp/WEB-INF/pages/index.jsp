@@ -16,7 +16,7 @@
 		<h1>Login</h1>
 		<div class="error"><s:text name="">${errorTxt}</s:text></div>
 		<div class="input">
-			<s:form method="post" action="j_spring_security_check">
+			<s:form method="post" action="j_spring_security_check" >
 				<s:textfield cssClass="divUser" type="text" name='username' placeholder="Username"/>
 				<s:textfield cssClass="divPass" type="password" name="password"  placeholder="Password"/>
 				<s:submit cssClass="divSub" name="Valider" value="Valider" />

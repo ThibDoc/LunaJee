@@ -108,3 +108,7 @@ div.input{
     background-image: url(../css/img/ze2.png);
     border: solid #AA86FE 1px;
 }
+
+.divUser:-webkit-autofill {
+     -webkit-background-color: red;
+}
