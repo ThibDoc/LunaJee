@@ -1,6 +1,7 @@
 package com.formation.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.daos.CategorieDAO;
 import com.formation.daos.CommandeDAO;
+import com.formation.daos.ModeReglementsDAO;
 import com.formation.entity.Article;
 import com.formation.entity.Categorie;
 import com.formation.entity.Client;
@@ -20,6 +22,7 @@ import com.formation.entity.ModeReglements;
 import com.formation.service.ArticleService;
 import com.formation.service.ClientService;
 import com.formation.service.CommandeService;
+import com.formation.service.ModeReglementsService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -34,6 +37,7 @@ import com.opensymphony.xwork2.ModelDriven;
 	@Result(name = "createPage", location = "createCommande.jsp"),
 	@Result(name = "createCommandeArticle", location = "createCommande.jsp"),
 	@Result(name = "deleteArticleCommande", location = "createCommande.jsp"),
+	@Result(name = "createUneCommande", location = "commande.jsp"),
 })
 public class CommandeAction extends ActionSupport  implements ModelDriven<Commande>{
 
@@ -42,6 +46,7 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	private Commande commandeUpdate;
 	private Client client;
 	private int idCli;
+	private int codeReg;
 	private int codeArt;
 	private int quantite;
 	Commande commande = new Commande();
@@ -56,9 +61,13 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	@Autowired
 	private ClientService clientDAO;
 	
+	@Autowired
+	private ModeReglementsService modesDAO;
+	
 	List<Commande> listCommandes;
 	List<Article> listArticles;
 	List<Client> listClients;
+	List<ModeReglements> listModes;
 	
 	static final List<Article> listArticlesCommandes= new ArrayList<Article>();
 	static final List<Ligne> listLigneCommandes= new ArrayList<Ligne>();
@@ -136,6 +145,23 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 		return "deleteArticleCommande";
 	}
 	
+	@Action("createUneCommande")
+	public String createUneCommande()throws Exception {
+		load();
+		for(Article art: listArticlesCommandes ){
+			Ligne ligne = new Ligne();
+			ligne.setArticle(art);
+			ligne.setQuantite(art.getQuantite());
+			listLigneCommandes.add(ligne);
+		}
+		commande.setClient(clientDAO.getClient(idCli));
+		commande.setLignes(listLigneCommandes);
+		commande.setModeReglement(modesDAO.getModeReglements(codeReg));
+		commande.setDate(new Date());
+		commandeDAO.CreateCommande(commande);
+		return "createUneCommande";
+	}
+	
 	public List<Commande> getListCommandes() {
 		return listCommandes;
 	}
@@ -156,6 +182,7 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 		listArticles = articleDAO.getAllArticles();
 		listCommandes = commandeDAO.getAllCommandes();
 		listClients = clientDAO.getAllClients();
+		listModes = modesDAO.getAllModeReglements();
 	}
 
 	public Commande getCommande() {
@@ -256,6 +283,22 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 
 	public void setListClients(List<Client> listClients) {
 		this.listClients = listClients;
+	}
+
+	public List<ModeReglements> getListModes() {
+		return listModes;
+	}
+
+	public void setListModes(List<ModeReglements> listModes) {
+		this.listModes = listModes;
+	}
+
+	public int getCodeReg() {
+		return codeReg;
+	}
+
+	public void setCodeReg(int codeReg) {
+		this.codeReg = codeReg;
 	}
 	
 	
