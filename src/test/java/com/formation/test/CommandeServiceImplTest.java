@@ -22,7 +22,7 @@ import com.formation.entity.Ligne;
 import com.formation.entity.ModeReglements;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class CommandeDAOImplTest {
+public class CommandeServiceImplTest {
 	
 	private static ApplicationContext context;
 	private static CommandeDAO commandeDAO;
