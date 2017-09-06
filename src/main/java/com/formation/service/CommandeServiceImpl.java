@@ -44,4 +44,10 @@ public class CommandeServiceImpl implements CommandeService {
 		return commandeDAO.getAllCommandes();
 	}
 
+	@Override
+	public List<Commande> getCommandeByCli(int code) {
+		// TODO Auto-generated method stub
+		return commandeDAO.getCommandeByCli(code);
+	}
+
 }

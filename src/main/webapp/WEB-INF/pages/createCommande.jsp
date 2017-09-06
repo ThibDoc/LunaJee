@@ -70,6 +70,8 @@
 		
 		<div>
 			<s:form method="post" action="createUneCommande" theme="css_xhtml">
+				<s:select label="Client" labelposition="left" cssClass="createArticleChamp" name="idCli" list="listClients" listValue="nom" listKey="code"></s:select>
+				<s:select label="Mode de reglements" labelposition="left" cssClass="createArticleChamp" name="codeReg" list="listModes" listValue="type" listKey="code"></s:select>
 				<s:submit cssClass="bouttonArt" name="Chercher" value="Valider la commande"/>
 			</s:form>
 		</div>

@@ -18,6 +18,8 @@ import com.formation.entity.Commande;
 import com.formation.entity.Ligne;
 import com.formation.entity.ModeReglements;
 import com.formation.service.ArticleService;
+import com.formation.service.ClientService;
+import com.formation.service.CommandeService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -46,13 +48,17 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	ModeReglements modeReglement;
 	
 	@Autowired
-	private CommandeDAO commandeDAO;
+	private CommandeService commandeDAO;
 	
 	@Autowired
 	private ArticleService articleDAO;
 
+	@Autowired
+	private ClientService clientDAO;
+	
 	List<Commande> listCommandes;
 	List<Article> listArticles;
+	List<Client> listClients;
 	
 	static final List<Article> listArticlesCommandes= new ArrayList<Article>();
 	static final List<Ligne> listLigneCommandes= new ArrayList<Ligne>();
@@ -149,6 +155,7 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	public void load() {
 		listArticles = articleDAO.getAllArticles();
 		listCommandes = commandeDAO.getAllCommandes();
+		listClients = clientDAO.getAllClients();
 	}
 
 	public Commande getCommande() {
@@ -241,6 +248,14 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 
 	public static List<Ligne> getListlignecommandes() {
 		return listLigneCommandes;
+	}
+
+	public List<Client> getListClients() {
+		return listClients;
+	}
+
+	public void setListClients(List<Client> listClients) {
+		this.listClients = listClients;
 	}
 	
 	
