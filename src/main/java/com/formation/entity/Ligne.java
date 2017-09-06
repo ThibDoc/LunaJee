@@ -66,7 +66,7 @@ public class Ligne implements Serializable {
 		return commande;
 	}
 
-	void setCommande(Commande commande) {
+	public void setCommande(Commande commande) {
 		this.commande = commande;
 	}
 }

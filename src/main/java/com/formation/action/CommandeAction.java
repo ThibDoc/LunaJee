@@ -22,6 +22,7 @@ import com.formation.entity.ModeReglements;
 import com.formation.service.ArticleService;
 import com.formation.service.ClientService;
 import com.formation.service.CommandeService;
+import com.formation.service.LigneService;
 import com.formation.service.ModeReglementsService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -63,6 +64,9 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	
 	@Autowired
 	private ModeReglementsService modesDAO;
+	
+	@Autowired
+	private LigneService ligneDAO;
 	
 	List<Commande> listCommandes;
 	List<Article> listArticles;
@@ -148,17 +152,21 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	@Action("createUneCommande")
 	public String createUneCommande()throws Exception {
 		load();
+		commande.setClient(clientDAO.getClient(idCli));
+		commande.setModeReglement(modesDAO.getModeReglements(codeReg));
+		commande.setDate(new Date());
+		commandeDAO.CreateCommande(commande);
 		for(Article art: listArticlesCommandes ){
 			Ligne ligne = new Ligne();
 			ligne.setArticle(art);
 			ligne.setQuantite(art.getQuantite());
+			ligne.setCommande(commande);
 			listLigneCommandes.add(ligne);
+			ligneDAO.CreateLigne(ligne);
 		}
-		commande.setClient(clientDAO.getClient(idCli));
 		commande.setLignes(listLigneCommandes);
-		commande.setModeReglement(modesDAO.getModeReglements(codeReg));
-		commande.setDate(new Date());
-		commandeDAO.CreateCommande(commande);
+		commandeDAO.updateCommande(commande);
+		load();
 		return "createUneCommande";
 	}
 	
