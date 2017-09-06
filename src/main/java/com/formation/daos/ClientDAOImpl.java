@@ -5,9 +5,11 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.formation.entity.Article;
 import com.formation.entity.Client;
 
 @Repository("ClientDAO")
@@ -46,6 +48,13 @@ public class ClientDAOImpl implements ClientDAO{
 	@Override
 	public List<Client> getAllClients() {
 		return this.sessionFactory.getCurrentSession().createQuery("from Client").list();
+	}
+	
+	@Override
+	public List<Client> getClientByName(String name) {
+		NativeQuery<Client> nativ=  this.sessionFactory.getCurrentSession().createNativeQuery("Select * from client where nom LIKE '%"+name+"%'",Client.class);
+		List<Client> client =nativ.getResultList();
+		return client;
 	}
 
 }

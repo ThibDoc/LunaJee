@@ -10,6 +10,11 @@
  			org.springframework.web.context.ContextLoaderListener
  		</listener-class>
  	</listener>
+ 	<listener>
+  	<listener-class>
+          com.formation.util.GlobalMessagesListener
+        </listener-class>
+  </listener>
  	
  	<context-param>
  		<param-name>contextConfigLocation</param-name>

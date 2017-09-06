@@ -29,7 +29,8 @@ import com.opensymphony.xwork2.interceptor.PreResultListener;
 	@Result(name = "delete", location = "client.jsp"),
 	@Result(name = "update", location = "client.jsp"),
 	@Result(name = "createPage", location = "createClient.jsp"),
-	@Result(name = "updatePage", location = "updateClient.jsp")})
+	@Result(name = "updatePage", location = "updateClient.jsp"),
+	@Result(name = "search", location = "client.jsp")})
 public class ClientAction extends ActionSupport implements ModelDriven<Client>,Preparable {
 
 	private static final long serialVersionUID = 1L;
@@ -40,7 +41,15 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 	private int codeCli;
 	private Client clientUpdate;
 	private boolean carte_fidelite;
-	
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public boolean isCarte_fidelite() {
 		return carte_fidelite;
@@ -135,13 +144,13 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 		return "createPage";
 	}
 	
-//	@Action("searchArticle")
-//	public String searchArticle()throws Exception {
-//		load();
-//		listClients.clear();
-//		listClients.add(clientService.getArticleByName());
-//		return "search";
-//	}
+	@Action("searchClient")
+	public String searchArticle() throws Exception {
+		load();
+		listClients.clear();
+		listClients = clientService.getClientByName(name);
+		return "search";
+	}
 
 	public Client getClient() {
 		return client;

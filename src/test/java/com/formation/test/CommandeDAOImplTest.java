@@ -13,6 +13,7 @@ import org.junit.runners.MethodSorters;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.formation.daos.ClientDAO;
 import com.formation.daos.CommandeDAO;
 
 import com.formation.entity.Client;
@@ -25,18 +26,23 @@ public class CommandeDAOImplTest {
 	
 	private static ApplicationContext context;
 	private static CommandeDAO commandeDAO;
+	private static ClientDAO clientDAO;
 
 	@BeforeClass
 	public static void oneTimeSetUp() {
 		context = new ClassPathXmlApplicationContext("application-Context.xml");
 		commandeDAO = (CommandeDAO) context.getBean("CommandeDAO");
+		clientDAO = (ClientDAO) context.getBean("ClientDAO");
 	}
 
 	@Test
 	public void atestCreateCommande() {
 		int expectedResult = 1;
 		Client client = new Client();
+		clientDAO.CreateClient(client);
 		ModeReglements modeReglements = new ModeReglements();
+		modeReglements.setCode(1);
+		modeReglements.setType("CB");
 		List<Ligne> lignes = new ArrayList<>();
 		Commande commande = new Commande(client, modeReglements, new Date(), lignes);
 		
@@ -51,25 +57,25 @@ public class CommandeDAOImplTest {
 	}
 	
 	@Test
-	public void testGetCommande() {
+	public void ctestGetCommande() {
 		Commande commande = commandeDAO.getCommande(1);
 		assertEquals(commande.getCode(), 1);
 	}
 
 	@Test
-	public void ctestUpdateCommande() {
+	public void dtestUpdateCommande() {
 		Commande commande = commandeDAO.getCommande(1);
 		Date date = new Date();
 		commande.setDate(date);
 		commandeDAO.updateCommande(commande);
 		Commande categorieResult = commandeDAO.getCommande(1);
-		assertEquals("Thib", categorieResult.getDate());
+		assertEquals(date, categorieResult.getDate());
 	}
 
 
 
 	@Test
-	public void dtestDeleteCommande() {
+	public void etestDeleteCommande() {
 		commandeDAO.DeleteCommande(commandeDAO.getCommande(1).getCode());
 		assertEquals(commandeDAO.getCommande(1), null);
 	}

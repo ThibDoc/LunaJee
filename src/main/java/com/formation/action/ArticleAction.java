@@ -13,6 +13,7 @@ import com.formation.entity.Categorie;
 import com.formation.service.ArticleService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.Preparable;
 
 @Action("/article")
 @ResultPath("/WEB-INF/pages")
@@ -26,7 +27,7 @@ import com.opensymphony.xwork2.ModelDriven;
 	@Result(name = "createPage", location = "createArticle.jsp"),
 	@Result(name = "search", location = "article.jsp"),
 })
-public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
+public class ArticleAction extends ActionSupport implements ModelDriven<Article>,Preparable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -169,6 +170,9 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		this.name = name;
 	}
 
-	
+	@Override
+	public void prepare() throws Exception {
+		load();
+	}
 	
 }

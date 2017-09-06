@@ -32,7 +32,7 @@
 		<div class="article">
 			<div class="panelgauche">
 				<div class="search">
-					<s:form cssClass="searchc" method="post" action="searchArticle"
+					<s:form cssClass="searchc" method="post" action="searchClient"
 						theme="css_xhtml">
 						<s:textfield cssClass="searchField" type="text" name="name"
 							placeholder="Rechercher" />

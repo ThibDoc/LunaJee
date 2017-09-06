@@ -45,4 +45,10 @@ public class ClientServiceImpl implements ClientService {
 		return clientDAO.getAllClients();
 	}
 
+	@Override
+	public List<Client> getClientByName(String name) {
+		// TODO Auto-generated method stub
+		return clientDAO.getClientByName(name);
+	}
+
 }

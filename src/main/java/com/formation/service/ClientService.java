@@ -10,6 +10,8 @@ public interface ClientService {
 	
 	public Client getClient(int i);
 	
+	public List<Client> getClientByName(String name);
+	
 	public void updateClient(Client client);
 	
 	public void DeleteClient(int code);

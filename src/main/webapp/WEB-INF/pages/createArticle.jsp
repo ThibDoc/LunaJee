@@ -48,9 +48,9 @@
 			<div class="updatecenter">
 				<fieldset><legend>Création</legend>
 					<s:form cssClass="gg" method="post" action="insertArticle" theme="css_xhtml">
-						<s:textfield type="text" name="article.designation" label="designation" labelposition="left"/>
-						<s:textfield cssClass="textUpdate" type="text" name="article.prixUnitaire" label="prixUnitaire" labelposition="left"/>
-						<s:textfield cssClass="textUpdate" type="text" name="article.quantite" label="quantite" labelposition="left"/>
+						<s:textfield type="text" required="true" name="article.designation" label="designation" labelposition="left"/>
+						<s:textfield cssClass="textUpdate" required="true" errorPosition="bottom" type="text" name="article.prixUnitaire" label="prixUnitaire" labelposition="left"/>
+						<s:textfield cssClass="textUpdate" required="true" errorPosition="bottom" type="text" name="article.quantite" label="quantite" labelposition="left"/>
 						<s:select cssClass="textUpdate" name="categ" list="listCateg" listValue="designation" listKey="code"></s:select>
 						<s:submit cssClass="textUpdate" name="Valider" value="Inserer"/>
 					</s:form>
