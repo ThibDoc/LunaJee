@@ -20,6 +20,7 @@ import com.opensymphony.xwork2.ModelDriven;
 	@Result(name = "success", location = "article.jsp"),
 	@Result(name = "insert", location = "article.jsp"),
 	@Result(name = "delete", location = "article.jsp"),
+	@Result(name = "input", location = "createArticle.jsp"),
 	@Result(name = "update", location = "article.jsp"),
 	@Result(name = "updatePage", location = "updateArticle.jsp"),
 	@Result(name = "createPage", location = "createArticle.jsp"),

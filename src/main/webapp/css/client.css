@@ -150,6 +150,10 @@ fieldset {
 	font-size: 14px;
 }
 
+.updatecenter{
+	height:auto;
+}
+
 .updatecenter .wwgrp{
 	margin-right:10px;
 	margin-top:10px;
