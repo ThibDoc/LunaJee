@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Entity(name="LignesCommandes")
+@Entity
 public class Ligne implements Serializable {
 
 	private static final long serialVersionUID = 1L;

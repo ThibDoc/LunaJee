@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -55,7 +56,7 @@ public class Commande implements Serializable {
 	private Date date;
 
 	@OneToMany(	cascade = { CascadeType.ALL },
-				mappedBy = "commande")
+				mappedBy = "commande", fetch=FetchType.EAGER)
 	private List<Ligne> lignes = new ArrayList<>();
 
 	/*

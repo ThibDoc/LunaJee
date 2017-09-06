@@ -29,36 +29,56 @@
 				<s:submit cssClass="text" name="Valider" value="Commande"/>
 			</s:form>
 		</div>
-		<div class="article">
+		<div class="articlee">
 			<div class="updategauche">
-				<div class="search">
-					<s:form cssClass="searchc" method="post" action="searchArticle" theme="css_xhtml">
-						<s:textfield cssClass="searchField" type="text" name="name" placeholder="Rechercher"/>
-						<s:submit cssClass="searchButon" name="Chercher" value=" "/>
+				<div class="articles">
+					<s:form cssClass="ajoutArticle" method="post" action="updateCommandePage" theme="css_xhtml">
+						<s:select label="Article" labelposition="left" cssClass="createArticleChamp" name="codeArt" list="listArticles" listValue="designation" listKey="code"></s:select>
+						<s:textfield cssClass="quantite" type="number" min="1" max="10" name="quantite" label="Quantité" labelposition="left"/>
+						<s:text name="">${codeCom}</s:text>
+						<s:textfield cssClass="textUpdate" type="hidden" name="codeCom"><s:param name="codeCom">${codeCom}</s:param></s:textfield>
+						<s:submit cssClass="bouttonArt" name="Chercher" value="Ajouter"/>
 					</s:form>
 				</div>
 				
-				<div class="search">
-					<s:a cssClass="textAdd" action="createArticlePage">
-						Ajouter un article
-					</s:a>
-				</div>
-			
-			
 			</div>
 			<div class="updatecenter">
-				<fieldset><legend>Commande</legend>
-					<s:form method="post" action="updateCommande" theme="css_xhtml">
-						<s:textfield type="date" name="commandeUpdate.date" label="Date" labelposition="left"/>
-						<s:textfield cssClass="textUpdate" type="hidden" name="commandeUpdate.client.code"><s:param name="commandeUpdate.client.code">${client.code}</s:param></s:textfield>
-						<s:textfield cssClass="textUpdate" type="hidden" name="commandeUpdate.modeReglement.code"><s:param name="commandeUpdate.modeReglement.code">${modeReglement.code}</s:param></s:textfield>
-						<s:textfield cssClass="textUpdate" type="hidden" name="commandeUpdate.modeReglement.type"><s:param name="commandeUpdate.modeReglement.type">${modeReglement.type}</s:param></s:textfield>
-						<s:textfield cssClass="textUpdate" type="hidden" name="codeCom"><s:param name="codeCom">${codeCom}</s:param></s:textfield>
-						<s:submit cssClass="textUpdate" name="Valider" value="Modifier"/>
-					</s:form>
-				</fieldset>
+				
+					<table>
+					<tr class="entete">
+						<td class="lefttab">Nom de l'article</td>
+						<td>Quantité</td>
+						<td>Prix Unitaire</td>
+						<td>Prix total</td>
+						<td>Supprimer</td>
+					</tr>
+					<c:forEach  items="${listArticlesCommandes}" var="articles" varStatus="loop">
+			   			<tr>
+			   				<td> ${articles.designation}</td>
+							<td> ${articles.quantite}</td>
+							<td> ${articles.prixUnitaire}</td>
+							<td> ${articles.prixUnitaire * articles.quantite}</td>
+							<td> 
+								<s:a action="deleteArticleCommandes">
+									<img alt="" src="${pageContext.request.contextPath}/css/img/Garbage-Open-48.png" width="30px"><s:param name="codeArt">${loop.index}</s:param><s:param name="codeCom">${codeCom}</s:param>
+								</s:a>
+							</td>
+						</tr>
+					</c:forEach>
+				</table>
+				
 			</div>
 		</div>
+			
 	</div>
+	
+	<div>
+			<s:form method="post" action="updateCommande" theme="css_xhtml">
+				<s:select label="Client" labelposition="left" cssClass="createArticleChamp" name="idCli" list="listClients" listValue="nom" listKey="code"></s:select>
+				<s:select label="Mode de reglements" labelposition="left" cssClass="createArticleChamp" name="codeReg" list="listModes" listValue="type" listKey="code"></s:select>
+				<s:textfield cssClass="textUpdate" type="hidden" name="codeCom"><s:param name="codeCom">${codeCom}</s:param></s:textfield>
+				<s:submit cssClass="bouttonArt" name="Chercher" value="Valider la commande"/>
+			</s:form>
+		</div>
 </body>
 </html>

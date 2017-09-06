@@ -38,6 +38,7 @@ import com.opensymphony.xwork2.ModelDriven;
 	@Result(name = "createPage", location = "createCommande.jsp"),
 	@Result(name = "createCommandeArticle", location = "createCommande.jsp"),
 	@Result(name = "deleteArticleCommande", location = "createCommande.jsp"),
+	@Result(name = "deleteArticleCommandes", location = "updateCommande.jsp"),
 	@Result(name = "createUneCommande", location = "commande.jsp"),
 })
 public class CommandeAction extends ActionSupport  implements ModelDriven<Commande>{
@@ -81,7 +82,7 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	public String execute()throws Exception {
 		load();
 		listArticlesCommandes.clear();
-		System.out.println(listCommandes.get(0).getModeReglement().getType());
+		listLigneCommandes.clear();
 		return SUCCESS;
 	}
 	
@@ -95,19 +96,42 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	@Action("updateCommandePage")
 	public String updateCommandePage()throws Exception {
 		load();
-		commandeUpdate = commandeDAO.getCommande(codeCom);
-		commandeUpdate.setCode(codeCom);
-		client = commandeUpdate.getClient();
-		modeReglement = commandeUpdate.getModeReglement();
-		System.out.println(modeReglement.getCode());
+		
+		if(listArticlesCommandes.size() == 0){
+			commandeUpdate = commandeDAO.getCommande(codeCom);
+			commandeUpdate.setCode(codeCom);
+			for(Ligne l: commandeUpdate.getLignes()){
+				listArticlesCommandes.add(l.getArticle());
+			}
+		}
+		if(quantite != 0){
+			unArticle = articleDAO.getArticle(codeArt);
+			unArticle.setQuantite(quantite);
+			if(listArticlesCommandes.contains(unArticle)){
+	
+			}else{
+				listArticlesCommandes.add(unArticle);
+			}
+		}
 		return "updatePage";
 	}
 	
 	@Action("updateCommande")
 	public String updateCommande()throws Exception {
-		commandeUpdate.setCode(codeCom);
+		listLigneCommandes.clear();
+		commandeUpdate = commandeDAO.getCommande(codeCom);
+		for(Article artii: listArticlesCommandes){
+			Ligne ligne = new Ligne();
+			ligne.setArticle(artii);
+			ligne.setQuantite(artii.getQuantite());
+			ligne.setCommande(commandeUpdate);
+			listLigneCommandes.add(ligne);
+		}
+		commandeUpdate.setLignes(listLigneCommandes);
 		commandeDAO.updateCommande(commandeUpdate);
 		load();
+		listArticlesCommandes.clear();
+		listLigneCommandes.clear();
 		return "update";
 	}
 	
@@ -129,7 +153,6 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	public String createCommandeArticle()throws Exception {
 		unArticle = articleDAO.getArticle(codeArt);
 		unArticle.setQuantite(quantite);
-		System.out.println(unArticle.getDesignation());
 		if(listArticlesCommandes.contains(unArticle)){
 
 			
@@ -147,6 +170,13 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 		load();
 		listArticlesCommandes.remove(codeArt);
 		return "deleteArticleCommande";
+	}
+	
+	@Action("deleteArticleCommandes")
+	public String deleteArticleCommandes()throws Exception {
+		load();
+		listArticlesCommandes.remove(codeArt);
+		return "deleteArticleCommandes";
 	}
 	
 	@Action("createUneCommande")
@@ -167,6 +197,7 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 		commande.setLignes(listLigneCommandes);
 		commandeDAO.updateCommande(commande);
 		load();
+		listLigneCommandes.clear();
 		return "createUneCommande";
 	}
 	
@@ -308,7 +339,5 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	public void setCodeReg(int codeReg) {
 		this.codeReg = codeReg;
 	}
-	
-	
 	
 }
