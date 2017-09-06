@@ -29,57 +29,51 @@
 				<s:submit cssClass="text" name="Valider" value="Commande"/>
 			</s:form>
 		</div>
-		<div class="article">
-			<div class="panelgauche">
-				<div class="search">
-					<s:form cssClass="searchc" method="post" action="searchCommande" theme="css_xhtml">
-						<s:textfield cssClass="searchField" type="text" name="idCli" placeholder="Rechercher"/>
-						<s:submit cssClass="searchButon" name="Chercher" value=" "/>
+		<div class="articlee">
+			<div class="updategauche">
+				<div class="articles">
+					<s:form cssClass="ajoutArticle" method="post" action="createCommandeArticle" theme="css_xhtml">
+						<s:select label="Article" labelposition="left" cssClass="createArticleChamp" name="codeArt" list="listArticles" listValue="designation" listKey="code"></s:select>
+						<s:textfield cssClass="quantite" type="number" min="1" max="10" name="quantite" label="Quantité" labelposition="left"/>
+						<s:submit cssClass="bouttonArt" name="Chercher" value="Ajouter"/>
 					</s:form>
 				</div>
 				
-				<div class="search">
-					<s:a cssClass="textAdd" action="createCommandePage">
-						Ajouter une commande
-					</s:a>
-				</div>
-			
-			
 			</div>
-			<div class="fff">
-				<table>
+			<div class="updatecenter">
+				
+					<table>
 					<tr class="entete">
-						<td class="lefttab">Code</td>
-						<td>Date</td>
-						<td>Nom client</td>
-						<td>Mode de réglement</td>
+						<td class="lefttab">Nom de l'article</td>
+						<td>Quantité</td>
+						<td>Prix Unitaire</td>
+						<td>Prix total</td>
 						<td>Supprimer</td>
-						<td class="righttab">Modifier</td>
 					</tr>
-					<c:forEach  items="${listCommandes}" var="commande">
+					<c:forEach  items="${listArticlesCommandes}" var="articles" varStatus="loop">
 			   			<tr>
-			   				<td> ${commande.code}</td>
-							<td> ${commande.date}</td>
-							<td> ${commande.client.nom}</td>
-							<td> ${commande.modeReglement.type}</td>
+			   				<td> ${articles.designation}</td>
+							<td> ${articles.quantite}</td>
+							<td> ${articles.prixUnitaire}</td>
+							<td> ${articles.prixUnitaire * articles.quantite}</td>
 							<td> 
-								<s:a action="deleteCommande">
-									<img alt="" src="${pageContext.request.contextPath}/css/img/Garbage-Open-48.png" width="30px"><s:param name="codeCom">${commande.code}</s:param>
-								</s:a>
-							</td>
-							<td> 
-								<s:a action="updateCommandePage">
-									<img alt="" src="${pageContext.request.contextPath}/css/img/Data-Edit-48.png" width="30px">
-									<s:param name="codeCom">${commande.code}</s:param>
-									<s:param name="client">${client}</s:param>
-									<s:param name="modeReglement">${modeReglement}</s:param>
+								<s:a action="deleteArticleCommande">
+									<img alt="" src="${pageContext.request.contextPath}/css/img/Garbage-Open-48.png" width="30px"><s:param name="codeArt">${loop.index}</s:param>
 								</s:a>
 							</td>
 						</tr>
 					</c:forEach>
 				</table>
-				</div>
+				
 			</div>
+		</div>
+		
+		<div>
+			<s:form method="post" action="createUneCommande" theme="css_xhtml">
+				<s:submit cssClass="bouttonArt" name="Chercher" value="Valider la commande"/>
+			</s:form>
+		</div>
+			
 	</div>
 </body>
 </html>

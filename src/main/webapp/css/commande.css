@@ -33,7 +33,13 @@ table{
 
 .article{
 	padding: 20px;
-	 display: flex;
+	display: flex;
+	align-items: center;
+}
+
+.articlee{
+	padding: 10px;
+	display: flex;
 	align-items: center;
 }
 
@@ -94,8 +100,27 @@ div.dd{
 	display: flex;
 }
 
+.articles{
+	width: 230px;
+	height: 100px;
+	background-color: #FE7F00;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	display: flex;
+	font-size: 15px;
+}
+
 .searchc{
 	display: flex;
+}
+
+.ajoutArticle{
+	display: flex;
+	flex-direction: column;
+	margin-left: 35px;
+	margin-top: 5px;
+	text-align: center;
 }
 
 .searchField{
@@ -132,9 +157,11 @@ div.dd{
 }
 
 .updatecenter{
-	width :300px;
+	width :auto;
 	height: 200px;
 	text-align: center;
+	overflow-x: auto;
+	overflow-y: auto;
 }
 
 .updategauche{
@@ -149,4 +176,18 @@ fieldset {
 	border-color: #FE7F00;
 	border-radius: 10px;
 	padding: 10px;
+}
+
+.createArticleChamp{
+	width: 120px;
+	margin-top: 10px;
+}
+
+.quantite{
+	width: 100px;
+	margin-top: 10px;
+}
+
+.bouttonArt{	
+	margin-top: 10px;	
 }

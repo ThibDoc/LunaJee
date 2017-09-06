@@ -1,5 +1,6 @@
 package com.formation.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts2.convention.annotation.Action;
@@ -14,6 +15,7 @@ import com.formation.entity.Article;
 import com.formation.entity.Categorie;
 import com.formation.entity.Client;
 import com.formation.entity.Commande;
+import com.formation.entity.Ligne;
 import com.formation.entity.ModeReglements;
 import com.formation.service.ArticleService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -27,6 +29,9 @@ import com.opensymphony.xwork2.ModelDriven;
 	@Result(name = "update", location = "commande.jsp"),
 	@Result(name = "updatePage", location = "updateCommande.jsp"),
 	@Result(name = "search", location = "commande.jsp"),
+	@Result(name = "createPage", location = "createCommande.jsp"),
+	@Result(name = "createCommandeArticle", location = "createCommande.jsp"),
+	@Result(name = "deleteArticleCommande", location = "createCommande.jsp"),
 })
 public class CommandeAction extends ActionSupport  implements ModelDriven<Commande>{
 
@@ -35,6 +40,8 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	private Commande commandeUpdate;
 	private Client client;
 	private int idCli;
+	private int codeArt;
+	private int quantite;
 	Commande commande = new Commande();
 	ModeReglements modeReglement;
 	
@@ -47,10 +54,14 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	List<Commande> listCommandes;
 	List<Article> listArticles;
 	
+	static final List<Article> listArticlesCommandes= new ArrayList<Article>();
+	static final List<Ligne> listLigneCommandes= new ArrayList<Ligne>();
+	Article unArticle;
 	
 	@Override
 	public String execute()throws Exception {
 		load();
+		listArticlesCommandes.clear();
 		System.out.println(listCommandes.get(0).getModeReglement().getType());
 		return SUCCESS;
 	}
@@ -87,6 +98,36 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 		listCommandes.clear();
 		listCommandes = commandeDAO.getCommandeByCli(idCli);
 		return "search";
+	}
+	
+	@Action("createCommandePage")
+	public String createCommandePage()throws Exception {
+		load();
+		return "createPage";
+	}
+	
+	@Action("createCommandeArticle")
+	public String createCommandeArticle()throws Exception {
+		unArticle = articleDAO.getArticle(codeArt);
+		unArticle.setQuantite(quantite);
+		System.out.println(unArticle.getDesignation());
+		if(listArticlesCommandes.contains(unArticle)){
+
+			
+		}else{
+			
+			listArticlesCommandes.add(unArticle);
+		}
+		
+		load();
+		return "createCommandeArticle";
+	}
+	
+	@Action("deleteArticleCommande")
+	public String deleteArticleCommande()throws Exception {
+		load();
+		listArticlesCommandes.remove(codeArt);
+		return "deleteArticleCommande";
 	}
 	
 	public List<Commande> getListCommandes() {
@@ -162,6 +203,44 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 
 	public void setIdCli(int idCli) {
 		this.idCli = idCli;
+	}
+
+	public List<Article> getListArticlesCommandes() {
+		return listArticlesCommandes;
+	}
+
+	
+
+	public Article getUnArticle() {
+		return unArticle;
+	}
+
+	public void setUnArticle(Article unArticle) {
+		this.unArticle = unArticle;
+	}
+
+	public int getCodeArt() {
+		return codeArt;
+	}
+
+	public void setCodeArt(int codeArt) {
+		this.codeArt = codeArt;
+	}
+
+	public int getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+
+	public static List<Article> getListarticlescommandes() {
+		return listArticlesCommandes;
+	}
+
+	public static List<Ligne> getListlignecommandes() {
+		return listLigneCommandes;
 	}
 	
 	
