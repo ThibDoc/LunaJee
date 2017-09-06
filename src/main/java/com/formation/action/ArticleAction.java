@@ -94,7 +94,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	public String searchArticle()throws Exception {
 		load();
 		listArticles.clear();
-		listArticles.add(articleDAO.getArticleByName(name));
+		listArticles = articleDAO.getArticleByName(name);
 		return "search";
 	}
 	

@@ -50,9 +50,9 @@ public class ArticleDAOImpl implements ArticleDAO{
 	}
 
 	@Override
-	public Article getArticleByName(String name) {
-		NativeQuery<Article> nativ=  this.sessionFactory.getCurrentSession().createNativeQuery("Select * from article where designation='"+name+"'",Article.class);
-		Article article =nativ.getSingleResult();
+	public List<Article> getArticleByName(String name) {
+		NativeQuery<Article> nativ=  this.sessionFactory.getCurrentSession().createNativeQuery("Select * from article where designation LIKE '%"+name+"%'",Article.class);
+		List<Article> article =nativ.getResultList();
 		return article;
 	}
 

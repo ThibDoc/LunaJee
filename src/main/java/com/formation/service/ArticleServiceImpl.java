@@ -44,7 +44,7 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public Article getArticleByName(String name) {
+	public List<Article> getArticleByName(String name) {
 		// TODO Auto-generated method stub
 		return articleDAO.getArticleByName(name);
 	}

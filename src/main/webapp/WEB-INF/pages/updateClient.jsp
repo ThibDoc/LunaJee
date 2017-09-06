@@ -50,20 +50,24 @@
 				<fieldset>
 					<legend>Modification</legend>
 					<s:form method="post" action="updateClient" theme="css_xhtml">
-						<s:textfield label="Nom" name="clientUpdate.nom"
-							labelposition="left" />
-						<s:textfield label="Prenom" name="clientUpdate.prenom"
-							required="true" labelposition="left" />
+						<div class="ligne">
+							<s:textfield label="Nom" name="clientUpdate.nom"
+								labelposition="left" />
+							<s:textfield label="Prenom" name="clientUpdate.prenom"
+								required="true" labelposition="left" />
+						</div>
 						<s:textfield label="Rue" name="clientUpdate.adresse.rue"
 							required="true" labelposition="left" />
-						<s:textfield label="Code postal"
-							name="clientUpdate.adresse.codePostal" required="true"
-							labelposition="left" />
-						<s:textfield label="Ville" name="clientUpdate.adresse.ville"
-							required="true" labelposition="left" />
+						<div class="ligne">
+							<s:textfield label="Code postal"
+								name="clientUpdate.adresse.codePostal" required="true"
+								labelposition="left" />
+							<s:textfield label="Ville" name="clientUpdate.adresse.ville"
+								required="true" labelposition="left" />
+						</div>
 						<s:radio label="Carte de fidélité" labelposition="left"
 							id="radiobutton" name="carte_fidelite"
-							list="#{'true' : 'oui', 'false' : 'non'}" value="false" />
+							list="#{'true' : 'oui', 'false' : 'non'}" value="clientUpdate.isCarteFidele" />
 						<s:textfield type="hidden" name="clientUpdate.date">
 							<s:param name="clientUpdate.date">${clientUpdate.date}</s:param>
 						</s:textfield>

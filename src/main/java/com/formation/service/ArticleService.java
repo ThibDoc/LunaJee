@@ -10,7 +10,7 @@ public interface ArticleService {
 	
 	public Article getArticle(int code);
 	
-	public Article getArticleByName(String name);
+	public List<Article> getArticleByName(String name);
 	
 	public void updateArticle(Article article);
 	

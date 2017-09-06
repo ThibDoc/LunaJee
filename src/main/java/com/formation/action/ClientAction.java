@@ -123,6 +123,7 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 	@Action("updateClient")
 	public String updateClient()throws Exception {
 		clientUpdate.setCode(codeCli);
+		clientUpdate.setCarteFidele(carte_fidelite);
 		clientService.updateClient(clientUpdate);
 		load();
 		return "update";
