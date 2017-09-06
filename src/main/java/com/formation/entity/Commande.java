@@ -47,7 +47,7 @@ public class Commande implements Serializable {
 	@ManyToOne
 	private Client client;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne()
 	@JoinColumn(name = "mode_reglement_code")
 	private ModeReglements modeReglement;
 
