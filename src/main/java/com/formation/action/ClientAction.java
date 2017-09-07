@@ -9,17 +9,12 @@ import org.apache.struts2.convention.annotation.ResultPath;
 import org.apache.struts2.convention.annotation.Results;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.formation.daos.ClientDAO;
 import com.formation.entity.Adresse;
-import com.formation.entity.Article;
 import com.formation.entity.Client;
 import com.formation.service.ClientService;
-import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
-import com.opensymphony.xwork2.interceptor.PreResultListener;
 
 @Action("/client")
 @ResultPath("/WEB-INF/pages")
