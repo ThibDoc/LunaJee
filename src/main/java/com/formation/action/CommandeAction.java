@@ -10,7 +10,6 @@ import org.apache.struts2.convention.annotation.ResultPath;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.formation.daos.CategorieDAO;
 import com.formation.daos.CommandeDAO;
 import com.formation.daos.ModeReglementsDAO;
 import com.formation.entity.Article;
