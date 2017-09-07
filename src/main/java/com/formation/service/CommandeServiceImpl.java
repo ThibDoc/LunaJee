@@ -1,12 +1,9 @@
 package com.formation.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.formation.daos.CommandeDAO;
-import com.formation.daos.CommandeDAOImpl;
 import com.formation.entity.Commande;
 
 @Repository("CommandeService")

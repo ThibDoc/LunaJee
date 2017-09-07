@@ -32,10 +32,9 @@
 		<div class="articlee">
 			<div class="updategauche">
 				<div class="articles">
-					<s:form cssClass="ajoutArticle" method="post" action="updateCommandePage" theme="css_xhtml">
+					<s:form cssClass="ajoutArticle" method="post" action="updateUneCommandePage" theme="css_xhtml">
 						<s:select label="Article" labelposition="left" cssClass="createArticleChamp" name="codeArt" list="listArticles" listValue="designation" listKey="code"></s:select>
 						<s:textfield cssClass="quantite" type="number" min="1" max="10" name="quantite" label="Quantité" labelposition="left"/>
-						<s:text name="">${codeCom}</s:text>
 						<s:textfield cssClass="textUpdate" type="hidden" name="codeCom"><s:param name="codeCom">${codeCom}</s:param></s:textfield>
 						<s:submit cssClass="bouttonArt" name="Chercher" value="Ajouter"/>
 					</s:form>
@@ -70,15 +69,16 @@
 			</div>
 		</div>
 			
-	</div>
-	
-	<div>
+		<div>
 			<s:form method="post" action="updateCommande" theme="css_xhtml">
 				<s:select label="Client" labelposition="left" cssClass="createArticleChamp" name="idCli" list="listClients" listValue="nom" listKey="code"></s:select>
 				<s:select label="Mode de reglements" labelposition="left" cssClass="createArticleChamp" name="codeReg" list="listModes" listValue="type" listKey="code"></s:select>
 				<s:textfield cssClass="textUpdate" type="hidden" name="codeCom"><s:param name="codeCom">${codeCom}</s:param></s:textfield>
 				<s:submit cssClass="bouttonArt" name="Chercher" value="Valider la commande"/>
 			</s:form>
-		</div>
+		</div>	
+			
+	</div>
+
 </body>
 </html>

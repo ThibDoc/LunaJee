@@ -1,14 +1,11 @@
 package com.formation.daos;
 
 import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.formation.entity.Ligne;
 
 @Repository("LigneDAO")
@@ -47,6 +44,15 @@ public class LigneDAOImpl implements LigneDAO{
 	@Override
 	public List<Ligne> getAllLigne() {
 		return this.sessionFactory.getCurrentSession().createQuery("from Ligne").list();
+	}
+
+	@Override
+	public void deleteAllLigneComm(int code) {
+		NativeQuery<Ligne> nativ=  this.sessionFactory.getCurrentSession().createNativeQuery("Select * from ligne where commande_code="+code,Ligne.class);
+		List<Ligne> lignes =nativ.getResultList();
+		for(Ligne l : lignes) {
+			this.sessionFactory.getCurrentSession().delete(l);
+		}
 	}
 
 

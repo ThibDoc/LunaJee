@@ -15,5 +15,7 @@ public interface LigneService {
 	public void DeleteLigne(int code);
 	
 	public List<Ligne> getAllLigne();
+	
+	public void deleteAllLigneComm(int code);
 
 }

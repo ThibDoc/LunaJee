@@ -1,7 +1,6 @@
 package com.formation.action;
 
 import java.util.List;
-
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
@@ -31,11 +30,12 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	private static final long serialVersionUID = 1L;
 	
-	private Article article = new Article();
-	private int categ;
-	private int codeArt;
-	private String name;
-	private Article articleUpdate;
+	private Article article = new Article(); // Article qui va étre crée
+	private Article articleUpdate; // Article qui va être modifier
+	
+	private int categ; // Pour récupérer la catégorie
+	private int codeArt; // Pour récupérer l'article
+	private String name; // Pour rechercher un article 
 
 	@Autowired
 	private ArticleService articleDAO;
@@ -43,8 +43,8 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	@Autowired
 	private CategorieDAO categorieDAO;
 	
-	List<Categorie> listCateg;
-	List<Article> listArticles;
+	List<Categorie> listCateg; // La liste des catégorie
+	List<Article> listArticles; // La liste des articles
 	
 	@Override
 	public String execute()throws Exception {
@@ -52,7 +52,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return SUCCESS;
 	}
 	
-	@Action("insertArticle")
+	@Action("insertArticle") // action pour crée un article
 	public String insertArticle()throws Exception {
 		load();
 		article.setReference(categorieDAO.getCategorie(categ));
@@ -61,14 +61,14 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return "insert";
 	}
 
-	@Action("deleteArticle")
+	@Action("deleteArticle") // action pour supprimer un article
 	public String deleteArticle()throws Exception {
 		articleDAO.DeleteArticle(codeArt);
 		load();
 		return "delete";
 	}
 	
-	@Action("updateArticlePage")
+	@Action("updateArticlePage") // action pour afficher la page d'update
 	public String updateArticlePage()throws Exception {
 		load();
 		articleUpdate = articleDAO.getArticle(codeArt);
@@ -77,7 +77,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return "updatePage";
 	}
 	
-	@Action("updateArticle")
+	@Action("updateArticle") // action qui met a jour un article
 	public String updateArticle()throws Exception {
 		articleUpdate.setReference(categorieDAO.getCategorie(categ));
 		articleUpdate.setCode(codeArt);
@@ -86,13 +86,13 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return "update";
 	}
 	
-	@Action("createArticlePage")
+	@Action("createArticlePage") //action qui affiche la page de création d'article
 	public String createPage()throws Exception {
 		load();
 		return "createPage";
 	}
 	
-	@Action("searchArticle")
+	@Action("searchArticle") // action qui recherche un article par nom
 	public String searchArticle()throws Exception {
 		load();
 		listArticles.clear();

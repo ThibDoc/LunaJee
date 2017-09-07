@@ -3,15 +3,12 @@ package com.formation.action;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.formation.daos.ModeReglementsDAO;
 import com.formation.entity.Article;
-import com.formation.entity.Categorie;
 import com.formation.entity.Client;
 import com.formation.entity.Commande;
 import com.formation.entity.Ligne;
@@ -37,19 +34,24 @@ import com.opensymphony.xwork2.ModelDriven;
 	@Result(name = "deleteArticleCommande", location = "createCommande.jsp"),
 	@Result(name = "deleteArticleCommandes", location = "updateCommande.jsp"),
 	@Result(name = "createUneCommande", location = "commande.jsp"),
+	@Result(name = "updateUneCommandePage", location = "updateCommande.jsp"),
 })
 public class CommandeAction extends ActionSupport  implements ModelDriven<Commande>{
 
 	private static final long serialVersionUID = 1L;
+	
 	private int codeCom;
-	private Commande commandeUpdate;
-	private Client client;
 	private int idCli;
 	private int codeReg;
 	private int codeArt;
 	private int quantite;
+	
 	Commande commande = new Commande();
 	ModeReglements modeReglement;
+	Article article;
+	Article unArticle;
+	private Commande commandeUpdate;
+	private Client client;
 	
 	@Autowired
 	private CommandeService commandeDAO;
@@ -70,11 +72,9 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	List<Article> listArticles;
 	List<Client> listClients;
 	List<ModeReglements> listModes;
-	
 	static final List<Article> listArticlesCommandes= new ArrayList<Article>();
 	static final List<Ligne> listLigneCommandes= new ArrayList<Ligne>();
-	Article unArticle;
-	
+
 	@Override
 	public String execute()throws Exception {
 		load();
@@ -93,23 +93,19 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	@Action("updateCommandePage")
 	public String updateCommandePage()throws Exception {
 		load();
-		
-		if(listArticlesCommandes.size() == 0){
-			commandeUpdate = commandeDAO.getCommande(codeCom);
-			commandeUpdate.setCode(codeCom);
-			for(Ligne l: commandeUpdate.getLignes()){
-				listArticlesCommandes.add(l.getArticle());
-			}
+		commandeUpdate = commandeDAO.getCommande(codeCom);
+		for(Ligne l: commandeUpdate.getLignes()){
+			listArticlesCommandes.add(l.getArticle());
 		}
-		if(quantite != 0){
-			unArticle = articleDAO.getArticle(codeArt);
-			unArticle.setQuantite(quantite);
-			if(listArticlesCommandes.contains(unArticle)){
+		return "updatePage";
+	}
 	
-			}else{
-				listArticlesCommandes.add(unArticle);
-			}
-		}
+	@Action("updateUneCommandePage")
+	public String updateUneCommandePage()throws Exception {
+		load();
+		article = articleDAO.getArticle(codeArt);
+		article.setQuantite(quantite);
+		listArticlesCommandes.add(article);
 		return "updatePage";
 	}
 	
@@ -117,11 +113,13 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	public String updateCommande()throws Exception {
 		listLigneCommandes.clear();
 		commandeUpdate = commandeDAO.getCommande(codeCom);
+		ligneDAO.deleteAllLigneComm(codeCom);
 		for(Article artii: listArticlesCommandes){
 			Ligne ligne = new Ligne();
 			ligne.setArticle(artii);
 			ligne.setQuantite(artii.getQuantite());
 			ligne.setCommande(commandeUpdate);
+			ligneDAO.CreateLigne(ligne);
 			listLigneCommandes.add(ligne);
 		}
 		commandeUpdate.setLignes(listLigneCommandes);
@@ -152,12 +150,9 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 		unArticle.setQuantite(quantite);
 		if(listArticlesCommandes.contains(unArticle)){
 
-			
 		}else{
-			
 			listArticlesCommandes.add(unArticle);
 		}
-		
 		load();
 		return "createCommandeArticle";
 	}
@@ -336,5 +331,15 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 	public void setCodeReg(int codeReg) {
 		this.codeReg = codeReg;
 	}
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+	
+	
 	
 }

@@ -8,8 +8,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.formation.entity.Article;
 import com.formation.entity.Client;
 
 @Repository("ClientDAO")

@@ -1,25 +1,19 @@
 package com.formation.test;
 
 import static org.junit.Assert.assertEquals;
-
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.formation.daos.ClientDAO;
 import com.formation.daos.CommandeDAO;
 import com.formation.daos.ModeReglementsDAO;
 import com.formation.entity.Client;
 import com.formation.entity.Commande;
-import com.formation.entity.Ligne;
-import com.formation.entity.ModeReglements;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CommandeDAOImplTest {

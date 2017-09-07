@@ -1,12 +1,9 @@
 package com.formation.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.formation.daos.LigneDAO;
-import com.formation.daos.LigneDAOImpl;
 import com.formation.entity.Ligne;
 
 @Repository("LigneService")
@@ -42,6 +39,12 @@ public class LigneServiceImpl implements LigneService {
 	public List<Ligne> getAllLigne() {
 		// TODO Auto-generated method stub
 		return ligneDAO.getAllLigne();
+	}
+
+	
+	public void deleteAllLigneComm(int code) {
+		// TODO Auto-generated method stub
+		ligneDAO.deleteAllLigneComm(code);
 	}
 
 

@@ -2,12 +2,10 @@ package com.formation.action;
 
 import java.util.Calendar;
 import java.util.List;
-
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
 import org.apache.struts2.convention.annotation.Results;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import com.formation.entity.Adresse;
 import com.formation.entity.Client;
@@ -30,38 +28,15 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 
 	private static final long serialVersionUID = 1L;
 
-	List<Client> listClients;
-	Adresse adresse = new Adresse();
+	List<Client> listClients; /// liste des clients
+	
+	Adresse adresse = new Adresse(); 
 	Client client = new Client();
+	
 	private int codeCli;
 	private Client clientUpdate;
 	private boolean carte_fidelite;
 	private String name;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public boolean isCarte_fidelite() {
-		return carte_fidelite;
-	}
-
-	public void setCarte_fidelite(boolean carte_fidelite) {
-		this.carte_fidelite = carte_fidelite;
-	}
-
-	public Adresse getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
-	
 
 	@Autowired
 	private ClientService clientService;
@@ -72,22 +47,6 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 		return SUCCESS;
 	}
 
-	public int getCodeCli() {
-		return codeCli;
-	}
-
-	public void setCodeCli(int codeCli) {
-		this.codeCli = codeCli;
-	}
-
-	public List<Client> getListClients() {
-		return listClients;
-	}
-
-	public void setListClients(List<Client> listClients) {
-		this.listClients = listClients;
-	}
-
 	@Action("createClient")
 	public String createClient() throws Exception {
 		load();
@@ -96,14 +55,6 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 		clientService.CreateClient(getModel());
 		load();
 		return "create";
-	}
-	
-	public Client getClientUpdate() {
-		return clientUpdate;
-	}
-
-	public void setClientUpdate(Client clientUpdate) {
-		this.clientUpdate = clientUpdate;
 	}
 
 	@Action("deleteClient")
@@ -168,6 +119,54 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 	@Override
 	public void prepare() throws Exception {
 		load();
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public boolean isCarte_fidelite() {
+		return carte_fidelite;
+	}
+
+	public void setCarte_fidelite(boolean carte_fidelite) {
+		this.carte_fidelite = carte_fidelite;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+	
+	public int getCodeCli() {
+		return codeCli;
+	}
+
+	public void setCodeCli(int codeCli) {
+		this.codeCli = codeCli;
+	}
+
+	public List<Client> getListClients() {
+		return listClients;
+	}
+
+	public void setListClients(List<Client> listClients) {
+		this.listClients = listClients;
+	}
+	
+	public Client getClientUpdate() {
+		return clientUpdate;
+	}
+
+	public void setClientUpdate(Client clientUpdate) {
+		this.clientUpdate = clientUpdate;
 	}
 
 }

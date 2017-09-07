@@ -71,8 +71,8 @@
 								<s:a action="updateCommandePage">
 									<img alt="" src="${pageContext.request.contextPath}/css/img/Data-Edit-48.png" width="30px">
 									<s:param name="codeCom">${commande.code}</s:param>
-									<s:param name="client">${client}</s:param>
-									<s:param name="modeReglement">${modeReglement}</s:param>
+									<s:param name="idCli">${commande.client.code}</s:param>
+									<s:param name="codeReg">${commande.modeReglement.code}</s:param>
 								</s:a>
 							</td>
 						</tr>

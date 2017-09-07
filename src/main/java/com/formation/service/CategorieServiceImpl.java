@@ -1,12 +1,9 @@
 package com.formation.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.formation.daos.CategorieDAO;
-import com.formation.daos.CategorieDAOImpl;
 import com.formation.entity.Categorie;
 
 @Repository("CategorieService")

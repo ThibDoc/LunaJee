@@ -1,12 +1,9 @@
 package com.formation.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.formation.daos.ModeReglementsDAO;
-import com.formation.daos.ModeReglementsDAOImpl;
 import com.formation.entity.ModeReglements;
 
 @Repository("ModeReglementsService")

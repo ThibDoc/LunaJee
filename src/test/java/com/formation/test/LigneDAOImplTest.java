@@ -1,20 +1,14 @@
 package com.formation.test;
 
 import static org.junit.Assert.assertEquals;
-
-import java.util.Date;
 import java.util.List;
-
-
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.formation.daos.LigneDAO;
-import com.formation.entity.Adresse;
 import com.formation.entity.Ligne;
 
 
