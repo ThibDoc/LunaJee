@@ -4,8 +4,6 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
 import org.apache.struts2.convention.annotation.Results;
-
-import com.formation.util.Efefe;
 import com.opensymphony.xwork2.ActionSupport;
 
 @Action("/index")
@@ -21,8 +19,6 @@ public class IndexAction extends ActionSupport {
 	
 	@Override
 	public String execute()throws Exception {
-		Efefe f = new Efefe();
-		f.testss();
 		return SUCCESS;
 	}
 

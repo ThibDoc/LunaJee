@@ -112,3 +112,9 @@ div.input{
 .divUser:-webkit-autofill {
      -webkit-background-color: red;
 }
+
+div.stat{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

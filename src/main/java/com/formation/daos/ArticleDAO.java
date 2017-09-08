@@ -16,6 +16,8 @@ public interface ArticleDAO {
 	
 	public void DeleteArticle(int code);
 	
+	public List<String> getArticleUtil();
+	
 	public List<Article> getAllArticles();
 
 }

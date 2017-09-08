@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,13 @@ public class ArticleDAOImpl implements ArticleDAO{
 		NativeQuery<Article> nativ=  this.sessionFactory.getCurrentSession().createNativeQuery("Select * from article where designation LIKE '%"+name+"%'",Article.class);
 		List<Article> article =nativ.getResultList();
 		return article;
+	}
+
+	@Override
+	public List<String> getArticleUtil() {
+		Query query=  this.sessionFactory.getCurrentSession().createSQLQuery("SELECT designation FROM article a,ligne l WHERE a.code = l.article_code");
+		List<String> list =query.list();
+		return list;
 	}
 
 }
