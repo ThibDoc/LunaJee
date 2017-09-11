@@ -29,18 +29,11 @@
 		</div>
 		<div class="article">
 			<div class="updategauche">
-				<div class="search">
-					<s:form cssClass="searchc" method="post" action="searchArticle"
-						theme="css_xhtml">
-						<s:textfield cssClass="searchField" type="text" name="name"
-							placeholder="Rechercher" />
-						<s:submit cssClass="searchButon" name="Chercher" value=" " />
-					</s:form>
-				</div>
+				
 
 				<div class="search">
-					<s:a cssClass="textAdd" action="createArticlePage">
-						Ajouter un article
+					<s:a cssClass="textAdd" action="client">
+						Retour
 					</s:a>
 				</div>
 
@@ -74,7 +67,7 @@
 						<s:textfield type="hidden" name="codeCli">
 							<s:param name="codeCli">${codeCli}</s:param>
 						</s:textfield>
-						<s:submit label="Enregistrer" />
+						<s:submit value="Enregistrer" label="Enregistrer" />
 					</s:form>
 				</fieldset>
 			</div>

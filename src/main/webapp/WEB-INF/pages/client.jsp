@@ -28,6 +28,9 @@
 			<s:form method="post" action="commande" theme="css_xhtml">
 				<s:submit cssClass="text" name="Valider" value="Commande" />
 			</s:form>
+			<s:form method="post" action="stats" theme="css_xhtml">
+				<s:submit cssClass="text" name="Valider" value="Statistique" />
+			</s:form>
 		</div>
 		<div class="article">
 			<div class="panelgauche">
@@ -51,7 +54,6 @@
 			<div class="fff">
 				<table>
 					<tr class="entete">
-						<td>Code</td>
 						<td>Nom</td>
 						<td>Prenom</td>
 						<td>Date</td>
@@ -59,34 +61,40 @@
 						<td>Supprimer</td>
 						<td class="righttab">Modifier</td>
 					</tr>
-					<c:forEach items="${listClients}" var="client">
+					<s:if test="%{listClients.size()==0}">
 						<tr>
-							<td>${client.code}</td>
-							<td>${client.nom}</td>
-							<td>${client.prenom}</td>
-							<td><fmt:formatDate value="${client.date}"
-									pattern="yyyy-MM-dd" /> <c:out value="${parsedDate}" /></td>
-							<td>${client.adresse.ville}</td>
-							<td><s:a action="deleteClient">
-									<img alt=""
-										src="${pageContext.request.contextPath}/css/img/Garbage-Open-48.png"
-										width="30px">
-									<s:param name="codeCli">${client.code}</s:param>
-								</s:a></td>
-							<td><s:a action="updateClientPage">
-									<img alt=""
-										src="${pageContext.request.contextPath}/css/img/Data-Edit-48.png"
-										width="30px">
-									<s:param name="codeCli">${client.code}</s:param>
-								</s:a></td>
+							<td colspan="7">Aucun client</td>
 						</tr>
-					</c:forEach>
+					</s:if>
+					<s:else>
+						<c:forEach items="${listClients}" var="client">
+							<tr>
+								<td>${client.nom}</td>
+								<td>${client.prenom}</td>
+								<td><fmt:formatDate value="${client.date}"
+										pattern="yyyy-MM-dd" /> <c:out value="${parsedDate}" /></td>
+								<td>${client.adresse.ville}</td>
+								<td><s:a action="deleteClient">
+										<img alt=""
+											src="${pageContext.request.contextPath}/css/img/Garbage-Open-48.png"
+											width="30px">
+										<s:param name="codeCli">${client.code}</s:param>
+									</s:a></td>
+								<td><s:a action="updateClientPage">
+										<img alt=""
+											src="${pageContext.request.contextPath}/css/img/Data-Edit-48.png"
+											width="30px">
+										<s:param name="codeCli">${client.code}</s:param>
+									</s:a></td>
+							</tr>
+						</c:forEach>
+					</s:else>
 				</table>
 			</div>
 		</div>
-	</div>	
+	</div>
 
 
-	
+
 </body>
 </html>

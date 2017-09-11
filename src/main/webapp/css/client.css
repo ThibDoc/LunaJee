@@ -12,7 +12,7 @@ body{
 
 table, tr, td{
 	  border-collapse: collapse;
-	  padding: 5px 2px 5px 10px;
+	  padding: 5px 10px 5px 10px;
 	  text-align: center;
 }
 
@@ -87,7 +87,20 @@ fieldset {
 }
 
 .panelgauche{
-	margin-top: -150px;
+	margin-top: -220px;
+}
+
+#updateClient_0, #createClient_0{
+  background: #50ADEB;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  font-family: Arial;
+  color: white;
+  font-size: 15px;
+  padding: 5px;
+  text-decoration: none;
+  border:none;
 }
 
 .search{
@@ -105,7 +118,7 @@ fieldset {
 }
 
 .updategauche{
-	margin-top: -120px;
+	margin-top: -150px;
 }
 
 .searchField{
@@ -137,7 +150,7 @@ fieldset {
 
 .fff{
 	height: 300px;
-	overflow-x: hidden;
+	overflow-x: auto;
 	overflow-y: auto;
 }
 

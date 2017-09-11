@@ -2,41 +2,10 @@
  "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 
 <validators>
-<!-- 	<field name="client.nom"> -->
-<!-- 		<field-validator type="requiredstring"> -->
-<!-- 			<message>Le nom est requis</message> -->
-<!-- 		</field-validator> -->
-<!-- 	</field> -->
-<!-- 	<field name="client.prenom"> -->
-<!-- 		<field-validator type="requiredstring"> -->
-<!-- 			<message>Le prenom est requis</message> -->
-<!-- 		</field-validator> -->
-<!-- 	</field> -->
-<!-- 	<field name="client.adresse.rue"> -->
-<!-- 		<field-validator type="requiredstring"> -->
-<!-- 			<message>L'adresse est requise</message> -->
-<!-- 		</field-validator> -->
-<!-- 	</field> -->
-<!-- 	<field name="client.adresse.ville"> -->
-<!-- 		<field-validator type="requiredstring"> -->
-<!-- 			<message>La ville est requise</message> -->
-<!-- 		</field-validator> -->
-<!-- 	</field> -->
-<!-- 	<field name="client.adresse.codePostal"> -->
-<!-- 		<field-validator type="requiredstring"> -->
-<!-- 			<message>Le code postal est requis</message> -->
-<!-- 		</field-validator> -->
-<!-- 	</field> -->
 	<field name="client.adresse.codePostal">
 		<field-validator type="regex">
 			<param name="regex"><![CDATA[\d{5}]]></param>
 			<message>Veuillez donner un code postal valide. (ex : 01222)</message>
 		</field-validator>
 	</field>
-<!-- 	<field name="client.adresse.codePostal"> -->
-<!-- 		<field-validator type="regex"> -->
-<!-- 			<param name="regex"><![CDATA[^\d+(?:[.]\d+)?$]]></param> -->
-<!-- 			<message>Veuillez donner un nombre valide. (ex : 32.5 ou 15 )</message> -->
-<!-- 		</field-validator> -->
-<!-- 	</field> -->
 </validators>

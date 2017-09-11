@@ -31,16 +31,11 @@
 		</div>
 		<div class="article">
 			<div class="updategauche">
-				<div class="search">
-					<s:form cssClass="searchc" method="post" action="article" theme="css_xhtml">
-						<s:textfield cssClass="searchField" type="text" name="search" placeholder="Rechercher"/>
-						<s:submit cssClass="searchButon" name="Chercher" value=" "/>
-					</s:form>
-				</div>
+				
 				
 				<div class="search">
 					<s:a cssClass="textAdd" action="article">
-						Ajouter un article
+						Retour
 					</s:a>
 			</div>
 				
@@ -51,7 +46,7 @@
 						<s:textfield type="text" required="true" name="article.designation" label="designation" labelposition="left"/>
 						<s:textfield cssClass="textUpdate" required="true" errorPosition="bottom" type="text" name="article.prixUnitaire" label="prixUnitaire" labelposition="left"/>
 						<s:textfield cssClass="textUpdate" required="true" errorPosition="bottom" type="text" name="article.quantite" label="quantite" labelposition="left"/>
-						<s:select cssClass="textUpdate" name="categ" list="listCateg" listValue="designation" listKey="code"></s:select>
+						<s:select cssClass="textUpdate" label="Catégorie" labelposition="left" name="categ" list="listCateg" listValue="designation" listKey="code"></s:select>
 						<s:submit cssClass="textUpdate" name="Valider" value="Inserer"/>
 					</s:form>
 				</fieldset>

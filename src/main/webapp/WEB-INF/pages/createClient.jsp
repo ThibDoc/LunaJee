@@ -33,18 +33,11 @@
 		</div>
 		<div class="article">
 			<div class="updategauche">
-				<div class="search">
-					<s:form cssClass="searchc" method="post" action="client"
-						theme="css_xhtml">
-						<s:textfield cssClass="searchField" type="text" name="search"
-							placeholder="Rechercher" />
-						<s:submit cssClass="searchButon" name="Chercher" value=" " />
-					</s:form>
-				</div>
+				
 
 				<div class="search">
 					<s:a cssClass="textAdd" action="client">
-						Ajouter un Client
+						Retour
 					</s:a>
 				</div>
 
@@ -71,7 +64,7 @@
 						<s:radio label="Carte de fidélité" labelposition="left"
 							id="radiobutton" name="carte_fidelite"
 							list="#{'true' : 'oui', 'false' : 'non'}" value="false" />
-						<s:submit label="Enregistrer" />
+						<s:submit value="Enregistrer" label="Enregistrer" />
 					</s:form>
 				</fieldset>
 			</div>

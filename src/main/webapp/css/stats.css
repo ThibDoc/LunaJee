@@ -12,12 +12,8 @@ body{
 
 table, tr, td{
 	  border-collapse: collapse;
-	  padding: 5px 10px 5px 10px;
+	  padding: 5px 2px 5px 10px;
 	  text-align: center;
-}
-
-#createUneCommande{
-	margin-left:30px;
 }
 
 table{
@@ -37,13 +33,7 @@ table{
 
 .article{
 	padding: 20px;
-	display: flex;
-	align-items: center;
-}
-
-.articlee{
-	padding: 10px;
-	display: flex;
+	 display: flex;
 	align-items: center;
 }
 
@@ -52,35 +42,9 @@ div.dd{
 	border-top-right-radius: 10px;
 	width: 100%;
 	height: 40px;
-	background-color: #FE7F00;
+	background-color: #BA3333;
 	display: flex;
 	align-items: center;
-}
-
-.articles input[type="submit"]{
-  background: #FEBA00;
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 10px;
-  font-family: Arial;
-  color: white;
-  font-size: 15px;
-  padding: 5px;
-  text-decoration: none;
-  border:none;
-}
-
-#createUneCommande_Chercher{
-  background: #FE7F00;
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 10px;
-  font-family: Arial;
-  color: white;
-  font-size: 15px;
-  padding: 5px;
-  text-decoration: none;
-  border:none;
 }
 
 .boutton{
@@ -89,7 +53,7 @@ div.dd{
 
 .text{
 	color: white;
-	background-color: #FE7F00;
+	background-color: #BA3333;
 	border: none;
 	font-weight: bold;
 	padding-left: 10px;
@@ -99,11 +63,11 @@ div.dd{
 
 .text:hover{
 	cursor:  pointer;
-	background-color: #FEBA00;
+	background-color: #E66161;
 }
 
 .entete{
-	background-color: #FE7F00;
+	background-color: #BA3333;
 	border: none;
 	font-weight: bold;
 }
@@ -117,47 +81,28 @@ div.dd{
 }
 
 .panelgauche{
-	margin-top: -220px;
+	margin-top: -150px;
 }
 
 .search{
 	width: 200px;
 	height: 30px;
-	background-color: #FE7F00;
+	background-color: #BA3333;
 	margin-right: 20px;
 	margin-bottom: 10px;
 	border-radius: 10px;
 	display: flex;
 }
 
-.articles{
-	width: auto;
-	background-color: #FE7F00;
-	padding:10px;
-	border-radius: 10px;
-	display: flex;
-	font-size: 15px;
-}
-
-.articles .wwgrp{
-	margin-bottom:10px;
-}
-
 .searchc{
 	display: flex;
-}
-
-.ajoutArticle{
-	display: flex;
-	flex-direction: column;
-	text-align: center;
 }
 
 .searchField{
 	margin-top: 6px;
 	margin-left: 15px;
 	width: 120px;
-	background-color: #FEBA00;
+	background-color: #5CFE3B;
 	border: none;
 }
 
@@ -187,17 +132,13 @@ div.dd{
 }
 
 .updatecenter{
-	width :auto;
-	height: 200px;
+	width :300px;
+	height: auto;
 	text-align: center;
-	overflow-x: auto;
-	overflow-y: auto;
 }
 
 .updategauche{
-	margin-top: -45px;
-	width :30%;
-	margin-right:20px;
+	margin-top: -100px;
 }
 
 .textUpdate{
@@ -205,22 +146,12 @@ div.dd{
 }
 
 fieldset {
-	border-color: #FE7F00;
+	border-color: #BA3333;
 	border-radius: 10px;
 	padding: 10px;
 }
 
-.createArticleChamp{
-	width: 120px;
-	margin-top: 10px;
-}
-
-.quantite{
-	width: 100px;
-	margin-top: 10px;
-}
-
-.bouttonArt{	
-	margin-top: 10px;	
-	margin-bottom:10px;
+.errorMessage{
+	color:red;
+	font-size: 14px;
 }

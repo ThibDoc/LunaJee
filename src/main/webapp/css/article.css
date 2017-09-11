@@ -12,7 +12,7 @@ body{
 
 table, tr, td{
 	  border-collapse: collapse;
-	  padding: 5px 2px 5px 10px;
+	  padding: 5px 10px 5px 10px;
 	  text-align: center;
 }
 
@@ -81,7 +81,20 @@ div.dd{
 }
 
 .panelgauche{
-	margin-top: -150px;
+	margin-top: -220px;
+}
+
+#insertArticle_Valider{
+	  background: #51C859;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  font-family: Arial;
+  color: white;
+  font-size: 15px;
+  padding: 5px;
+  text-decoration: none;
+  border:none;
 }
 
 .search{
@@ -138,7 +151,7 @@ div.dd{
 }
 
 .updategauche{
-	margin-top: -100px;
+	margin-top: -140px;
 }
 
 .textUpdate{
