@@ -101,14 +101,16 @@ div.dd{
 }
 
 .articles{
-	width: 230px;
-	height: 100px;
+	width: auto;
 	background-color: #FE7F00;
-	margin-right: 20px;
-	margin-bottom: 10px;
+	padding:10px;
 	border-radius: 10px;
 	display: flex;
 	font-size: 15px;
+}
+
+.articles .wwgrp{
+	margin-bottom:10px;
 }
 
 .searchc{
@@ -118,8 +120,6 @@ div.dd{
 .ajoutArticle{
 	display: flex;
 	flex-direction: column;
-	margin-left: 35px;
-	margin-top: 5px;
 	text-align: center;
 }
 
@@ -165,7 +165,9 @@ div.dd{
 }
 
 .updategauche{
-	margin-top: -100px;
+	margin-top: -25px;
+	width :30%;
+	margin-right:20px;
 }
 
 .textUpdate{
@@ -190,4 +192,5 @@ fieldset {
 
 .bouttonArt{	
 	margin-top: 10px;	
+	margin-bottom:10px;
 }

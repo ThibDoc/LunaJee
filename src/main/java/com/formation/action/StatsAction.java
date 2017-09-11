@@ -9,7 +9,7 @@ import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.daos.ArticleDAO;
-import com.formation.util.Efefe;
+import com.formation.util.Statistique;
 import com.opensymphony.xwork2.ActionSupport;
 
 @Action("/stats")
@@ -28,7 +28,7 @@ public class StatsAction extends ActionSupport {
 	public String execute()throws Exception {
 		File file = new File("C:\\Users\\Dimi\\git\\LunaJee\\src\\main\\webapp\\css\\img\\stats.png");
 		file.delete();
-		Efefe f = new Efefe();
+		Statistique f = new Statistique();
 		f.testss(articleDAOs);
 		return SUCCESS;
 	}

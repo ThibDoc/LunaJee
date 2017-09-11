@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.formation.daos.ArticleDAO;
 
-public class Efefe {
+public class Statistique {
 	
 	public void testss(ArticleDAO dao) {
         // This will create the dataset

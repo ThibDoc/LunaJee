@@ -7,13 +7,16 @@ body{
 }
 
 div.titre {
-    font-style: italic;
+    
     font-weight: bold;
     color: #AA86FE;
     font-size: 40px;
     text-align: center;
 }
 
+.mt100{
+	margin-top: 100px;
+}
 div.error{
 	color: red;
 	 font-size: 20px;

@@ -11,6 +11,8 @@
 <title>Connexions</title>
 </head>
 <body>
+	
+	<div class="titre mt100"><img src="${pageContext.request.contextPath}/css/img/Moon-32.png"/></div>
 	<div class="titre">Luna</div>
 	<div class="blockCo">
 		<h1>Login</h1>
