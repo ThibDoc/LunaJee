@@ -16,6 +16,9 @@
 
 
 	<div class="tous">
+	<div class="titre">
+			<h1>Ajouter un client</h1>
+		</div>
 		<div class="dd">
 			<s:form cssClass="boutton" method="post" action="menu"
 				theme="css_xhtml">

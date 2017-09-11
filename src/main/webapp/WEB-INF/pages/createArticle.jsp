@@ -15,6 +15,9 @@
 	
 	
 	<div class="tous">
+		<div class="titre">
+			<h1>Ajouter un articles</h1>
+		</div>
 		<div class="dd">
 			<s:form cssClass="boutton" method="post" action="menu" theme="css_xhtml">
 				<s:submit cssClass="text" name="Valider" value="Menu"/>

@@ -10,6 +10,11 @@ body{
   	display: flex;
 }
 
+h1{
+	margin-bottom:50px;
+	color: #51C859;
+}
+
 table, tr, td{
 	  border-collapse: collapse;
 	  padding: 5px 10px 5px 10px;
@@ -23,7 +28,7 @@ table{
 	width:auto; height:auto; float: none; 
 	margin: auto;
 	margin-top: 200px;
-	background-color: white;
+	
 	display: flex;
 	align-items: center;
   	flex-direction: column;
@@ -32,6 +37,7 @@ table{
 }
 
 .article{
+	background-color: white;
 	padding: 20px;
 	 display: flex;
 	align-items: center;

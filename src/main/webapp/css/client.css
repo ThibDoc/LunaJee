@@ -16,14 +16,23 @@ table, tr, td{
 	  text-align: center;
 }
 
+.titre{
+	text-align:center;
+	background-color: none
+}
+
+h1{
+	margin-bottom:50px;
+	color: #50ADEB;
+}
+
 table{
 	background-color: #F2F2F2;
 }
 .tous{
 	width:auto; height:auto; float: none; 
 	margin: auto;
-	margin-top: 200px;
-	background-color: white;
+	margin-top: 170px;
 	display: flex;
 	align-items: center;
   	flex-direction: column;
@@ -32,6 +41,7 @@ table{
 }
 
 .article{
+	background-color: white;
 	padding: 20px;
 	 display: flex;
 	align-items: center;

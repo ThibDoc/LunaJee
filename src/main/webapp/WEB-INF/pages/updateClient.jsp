@@ -12,6 +12,9 @@
 </head>
 <body>
 	<div class="tous">
+		<div class="titre">
+			<h1>Modifier un client</h1>
+		</div>
 		<div class="dd">
 			<s:form cssClass="boutton" method="post" action="menu"
 				theme="css_xhtml">
