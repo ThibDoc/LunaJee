@@ -190,6 +190,7 @@ public class CommandeAction extends ActionSupport  implements ModelDriven<Comman
 		commandeDAO.updateCommande(commande);
 		load();
 		listLigneCommandes.clear();
+		listArticlesCommandes.clear();
 		return "createUneCommande";
 	}
 	

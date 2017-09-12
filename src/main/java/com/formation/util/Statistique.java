@@ -30,7 +30,7 @@ public class Statistique {
         // add it to our application
 
         try {
-			ChartUtilities.saveChartAsPNG(new File("C:\\Users\\Dimi\\git\\LunaJee\\src\\main\\webapp\\css\\img\\stats.png"), chart, 400, 300);
+			ChartUtilities.saveChartAsPNG(new File("C:\\Users\\SDJ09\\git\\LunaJee\\src\\main\\webapp\\css\\img\\stats.png"), chart, 400, 300);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
