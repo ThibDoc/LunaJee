@@ -58,11 +58,19 @@ public class ArticleServiceImplTest {
 		Article categorieResult = articleDAO.getArticle(1);
 		assertEquals("Lave Vaisselle", categorieResult.getDesignation());
 	}
-
+	
+	@Test
+	public void etestGetArticleByName() {
+		Article article = articleDAO.getArticle(1);
+		article.setDesignation("Lave Vaisselle");
+		List<Article> articleList = articleDAO.getArticleByName("Lave");
+		Article categorieResult = articleList.get(0);
+		assertEquals("Lave Vaisselle", categorieResult.getDesignation());
+	}
 
 
 	@Test
-	public void etestDeleteArticle() {
+	public void ftestDeleteArticle() {
 		articleDAO.DeleteArticle(articleDAO.getArticle(1).getCode());
 		assertEquals(articleDAO.getArticle(1), null);
 	}

@@ -15,6 +15,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.formation.daos.ClientDAO;
 import com.formation.entity.Adresse;
+import com.formation.entity.Article;
 import com.formation.entity.Client;
 
 
@@ -61,10 +62,15 @@ public class ClientDAOImplTest {
 		assertEquals("Thib", categorieResult.getNom());
 	}
 
-
+	@Test
+	public void etestGetClientByName() {
+		List<Client> clientList = clientDAO.getClientByName("Thi");
+		Client categorieResult = clientList.get(0);
+		assertEquals("Thib", categorieResult.getNom());
+	}
 
 	@Test
-	public void etestDeleteClient() {
+	public void ftestDeleteClient() {
 		clientDAO.DeleteClient(clientDAO.getClient(1).getCode());
 		assertEquals(clientDAO.getClient(1), null);
 	}

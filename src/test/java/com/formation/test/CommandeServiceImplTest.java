@@ -63,10 +63,15 @@ public class CommandeServiceImplTest {
 		assertEquals("Docquier", categorieResult.getClient().getNom());
 	}
 
-
+	@Test
+	public void etestGetCommandeByName() {
+		List<Commande> commandeList = commandeDAO.getCommandeByCli(1);
+		Commande categorieResult = commandeList.get(0);
+		assertEquals(1, categorieResult.getClient().getCode());
+	}
 
 	@Test
-	public void etestDeleteCommande() {
+	public void ftestDeleteCommande() {
 		commandeDAO.DeleteCommande(commandeDAO.getCommande(1).getCode());
 		assertEquals(commandeDAO.getCommande(1), null);
 	}
