@@ -33,6 +33,9 @@
 			<s:form method="post" action="commande" theme="css_xhtml">
 				<s:submit cssClass="text" name="Valider" value="Commande" />
 			</s:form>
+			<s:form method="post" action="stats" theme="css_xhtml">
+				<s:submit cssClass="text" name="Valider" value="Statistique" />
+			</s:form>
 		</div>
 		<div class="article">
 			<div class="updategauche">

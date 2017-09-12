@@ -16,9 +16,6 @@ table, tr, td{
 	  text-align: center;
 }
 
-#createUneCommande{
-	margin-left:30px;
-}
 
 table{
 	background-color: #F2F2F2;
@@ -46,7 +43,10 @@ table{
 	padding: 10px;
 	display: flex;
 	align-items: center;
+	background-color: white;
 }
+
+
 
 div.dd{
 	border-top-left-radius: 10px;
@@ -58,7 +58,21 @@ div.dd{
 	align-items: center;
 }
 
-.articles input[type="submit"]{
+.validCommande{
+	background-color: #FE7F00;
+	padding:10px;
+	border-radius: 10px;
+	display: flex;
+	font-size: 15px;
+	margin-top:20px;
+}
+
+.validCommande .wwgrp{
+	margin-bottom:10px;
+	
+}
+
+.articles input[type="submit"],#createUneCommande_Chercher,#updateCommande_Chercher{
   background: #FEBA00;
   -webkit-border-radius: 10;
   -moz-border-radius: 10;
@@ -71,18 +85,7 @@ div.dd{
   border:none;
 }
 
-#createUneCommande_Chercher{
-  background: #FE7F00;
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 10px;
-  font-family: Arial;
-  color: white;
-  font-size: 15px;
-  padding: 5px;
-  text-decoration: none;
-  border:none;
-}
+
 
 .boutton{
 	padding-left: 20px;
@@ -194,6 +197,7 @@ h1{
 
 .updatecenter{
 	width :auto;
+	margin-top:-135px;
 	height: 200px;
 	text-align: center;
 	overflow-x: auto;
@@ -201,7 +205,6 @@ h1{
 }
 
 .updategauche{
-	margin-top: -40px;
 	width :30%;
 	margin-right:20px;
 }

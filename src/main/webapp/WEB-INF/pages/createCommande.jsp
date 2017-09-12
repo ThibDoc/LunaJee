@@ -31,6 +31,9 @@
 			<s:form method="post" action="commande" theme="css_xhtml">
 				<s:submit cssClass="text" name="Valider" value="Commande"/>
 			</s:form>
+			<s:form method="post" action="stats" theme="css_xhtml">
+				<s:submit cssClass="text" name="Valider" value="Statistique" />
+			</s:form>
 		</div>
 		<div class="articlee">
 			<div class="updategauche">
@@ -41,6 +44,13 @@
 						<s:submit cssClass="bouttonArt" name="Chercher" value="Ajouter"/>
 					</s:form>
 				</div>
+					<div class="validCommande">
+			<s:form method="post" action="createUneCommande" theme="css_xhtml">
+				<s:select label="Client" labelposition="left" cssClass="createArticleChamp" name="idCli" list="listClients" listValue="nom" listKey="code"></s:select>
+				<s:select label="Mode de reglements" labelposition="left" cssClass="createArticleChamp" name="codeReg" list="listModes" listValue="type" listKey="code"></s:select>
+				<s:submit cssClass="bouttonArt" name="Chercher" value="Valider la commande"/>
+			</s:form>
+		</div>
 				
 			</div>
 			<div class="updatecenter">
@@ -69,15 +79,10 @@
 				</table>
 				
 			</div>
+		
 		</div>
 		
-		<div>
-			<s:form method="post" action="createUneCommande" theme="css_xhtml">
-				<s:select label="Client" labelposition="left" cssClass="createArticleChamp" name="idCli" list="listClients" listValue="nom" listKey="code"></s:select>
-				<s:select label="Mode de reglements" labelposition="left" cssClass="createArticleChamp" name="codeReg" list="listModes" listValue="type" listKey="code"></s:select>
-				<s:submit cssClass="bouttonArt" name="Chercher" value="Valider la commande"/>
-			</s:form>
-		</div>
+		
 			
 	</div>
 </body>
