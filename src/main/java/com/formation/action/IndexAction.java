@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Results({
 	@Result(name = "success", location = "index.jsp"),
 	@Result(name = "error", location = "index.jsp"),
+	@Result(name = "access", location = "403.jsp"),
 })
 public class IndexAction extends ActionSupport {
 
@@ -26,6 +27,11 @@ public class IndexAction extends ActionSupport {
 	public String gg()throws Exception{
 		errorTxt = "Mauvais login ou mdp !";
 		return ERROR;
+	}
+	
+	@Action("access")
+	public String access()throws Exception{
+		return "access";
 	}
 
 	public String getErrorTxt() {

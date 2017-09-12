@@ -36,5 +36,6 @@
 		</div>
 	</div>
 	<div class="logo"></div>
+	<a href="<c:url value="/j_spring_security_logout" />" > Déconnexions</a>
 </body>
 </html>

@@ -8,10 +8,41 @@
     http://www.springframework.org/schema/security/spring-security-3.1.xsd">
   
     <http auto-config="true">
-        <intercept-url pattern="/menu" access="ROLE_ADMIN" /> <!-- Pour la page insert il faut être admin -->
-        <intercept-url pattern="/user" access="ROLE_USER" /><!-- Pour la page user il faut être user -->
-         
-        <access-denied-handler error-page="/WEB-INF/pages/403.jsp" /> <!-- Page de redirection si on a pas l'autorisation -->
+        <intercept-url pattern="/menu" access="ROLE_ADMIN"/>
+        
+        <intercept-url pattern="/article" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/insertArticle" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/deleteArticle" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/updateArticlePage" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/updateArticle" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/createArticlePage" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/searchArticle" access="ROLE_ADMIN"/>
+        
+        <intercept-url pattern="/client" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/createClient" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/deleteClient" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/updateClientPage" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/updateClient" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/createClientPage" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/searchClient" access="ROLE_ADMIN"/>
+        
+        <intercept-url pattern="/commande" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/deleteCommande" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/updateCommandePage" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/updateUneCommandePage" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/updateCommande" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/searchCommande" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/createCommandePage" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/createCommandeArticle" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/deleteArticleCommande" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/deleteArticleCommandes" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/createUneCommande" access="ROLE_ADMIN"/>
+        
+        <intercept-url pattern="/stats" access="ROLE_ADMIN"/>
+        
+  		<intercept-url pattern="/*.action" access="ROLE_ADMIN"/>
+  		
+        <access-denied-handler error-page="/access" /> <!-- Page de redirection si on a pas l'autorisation -->
          
         <form-login
             login-page="/index"
