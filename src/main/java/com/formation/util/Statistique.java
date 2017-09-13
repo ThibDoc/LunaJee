@@ -51,9 +51,12 @@ public class Statistique {
 		 		}
 		 		else if(desi.equals(list.get(i -1))){
 		 			compt +=1;
+		 			if(i == list.size() -1){
+		 				result.setValue(list.get(i) +" = "+ compt, compt);
+		 			}
 		 		}
 		 		else {
-		 			result.setValue(list.get(i-1), compt);
+		 			result.setValue(list.get(i-1) +" = "+ compt, compt);
 		 			compt = 1;
 		 		}
 		 		

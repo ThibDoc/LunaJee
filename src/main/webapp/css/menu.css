@@ -81,3 +81,43 @@ h1{
 	background-size: cover;
 
 }
+
+.bouttonClient:hover{
+	background: url(../css/img/People-128-actif.png);
+	background-size: cover;
+	border-radius:50%;
+	border : none;
+	width:150px;
+	height:150px;
+}
+
+.bouttonArticle:hover{
+	background: url(../css/img/Product-128-actif.png);
+	background-size: cover;
+	border-radius:50%;
+	border : none;
+	width:150px;
+	height:150px;
+}
+
+.bouttonStats:hover{
+	background: url(../css/img/Diagram-128-actif.png);
+	background-size: cover;
+	border-radius:50%;
+	border : none;
+	width:150px;
+	height:150px;
+}
+
+.bouttonCommande:hover{
+	background: url(../css/img/Shopping-Bag-128-actif.png);
+	background-size: cover;
+	border-radius:50%;
+	border : none;
+	width:150px;
+	height:150px;
+}
+
+.deco{
+	margin-top: 50px;
+}

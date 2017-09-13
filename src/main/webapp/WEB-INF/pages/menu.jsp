@@ -35,7 +35,12 @@
 			</s:form>
 		</div>
 	</div>
-	<div class="logo"></div>
-	<a href="<c:url value="/j_spring_security_logout" />" > Déconnexions</a>
+	<center>
+		<div class="deco">
+			<a href="<c:url value="/j_spring_security_logout" />" >
+				<img width="150px" height="50px" src="${pageContext.request.contextPath}/css/img/disconnect.png"/>
+			</a>
+		</div>
+	</center>
 </body>
 </html>
