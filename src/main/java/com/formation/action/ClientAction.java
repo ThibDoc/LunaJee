@@ -28,7 +28,7 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>,P
 
 	private static final long serialVersionUID = 1L;
 
-	List<Client> listClients; /// liste des clients
+	private List<Client> listClients; /// liste des clients
 	
 	Adresse adresse = new Adresse(); 
 	Client client = new Client();

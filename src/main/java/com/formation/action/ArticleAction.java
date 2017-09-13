@@ -1,20 +1,16 @@
 package com.formation.action;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 import java.util.List;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.formation.daos.ArticleDAO;
 import com.formation.daos.CategorieDAO;
 import com.formation.entity.Article;
 import com.formation.entity.Categorie;
 import com.formation.service.ArticleService;
-import com.formation.util.Statistique;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;

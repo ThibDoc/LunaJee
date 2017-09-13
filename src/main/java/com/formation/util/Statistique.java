@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtilities;
@@ -13,10 +15,12 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.util.Rotation;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.formation.daos.ArticleDAO;
 
+
 public class Statistique {
+	
+	private Logger logger= LoggerFactory.getLogger(Statistique.class);
 	
 	public void testss(ArticleDAO dao) {
         // This will create the dataset
@@ -33,7 +37,7 @@ public class Statistique {
 			ChartUtilities.saveChartAsPNG(new File("C:\\Users\\SDJ09\\git\\LunaJee\\src\\main\\webapp\\css\\img\\stats.png"), chart, 400, 300);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("fdp",e);
 		}
        
     }

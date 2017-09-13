@@ -27,7 +27,7 @@ public class StatsAction extends ActionSupport {
 	@Override
 	public String execute()throws Exception {
 		File file = new File("C:\\Users\\SDJ09\\git\\LunaJee\\src\\main\\webapp\\css\\img\\stats.png");
-		file.delete();
+		if(file.delete()) System.out.println("Image supprimer");
 		Statistique f = new Statistique();
 		f.testss(articleDAOs);
 		return SUCCESS;
