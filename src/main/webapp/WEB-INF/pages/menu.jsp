@@ -37,9 +37,9 @@
 	</div>
 	<center>
 		<div class="deco">
-			<a href="<c:url value="/j_spring_security_logout" />" >
-				<img width="150px" height="50px" src="${pageContext.request.contextPath}/css/img/disconnect.png"/>
-			</a>
+			<s:form method="post" action="/j_spring_security_logout">
+				<s:submit cssClass="btnDeco" value="Déconnexion"/>
+			</s:form>
 		</div>
 	</center>
 </body>
